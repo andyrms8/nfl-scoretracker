@@ -5,6 +5,9 @@ import "chart.js/auto";
 import {Line} from 'react-chartjs-2';
 import schedule from './schedule.js'
 import game from './game.js';
+import SelectedTeamInfo from './SelectedTeamInfo.js'
+import ScheduledGameInfo from './ScheduledGameInfo';
+import RecentGames from './RecentGames.js'
 
 
 const TEAM = "Los Angeles Chargers"

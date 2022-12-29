@@ -1,4 +1,4 @@
-const schedule = 
+const hardcoded_schedule = 
 {
     "id": "75749c10-56c1-4ae0-9d1e-2689708debdf",
     "year": 2022,
@@ -23500,4 +23500,4 @@ const schedule =
 }
 
 
-export default schedule;
+export default hardcoded_schedule;

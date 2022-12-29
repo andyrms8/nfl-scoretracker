@@ -36,11 +36,11 @@ class Chart extends React.Component{
             nextGameTimeString: "", //shouldnt need, will be used in ScheduledGameInfo
             nextGameWeek: 0, //shouldnt need, will be used in ScheduledGameInfo
             nextGameTime: "", //shouldnt need, will be used by parent to calculate when to switch from ScheduledGameInfo component to Chart component
-            nextGameId: "", //won't need, use current GameId instead
-            labels: [1],
-            awayScores:[0],
-            homeScores:[0],
-            intervalID:-1
+            nextGameId: "", //NEED,maybe rename to just GameId instead
+            labels: [1], //restructure
+            awayScores:[0], //restructure later
+            homeScores:[0], //restructure later
+            intervalID:-1 //NEED to know when to stop polling box score API
         }
         
         this.displayScheduledGame = this.displayScheduledGame.bind(this)
@@ -50,7 +50,7 @@ class Chart extends React.Component{
     }
 
     componentDidMount(){
-        //make a call to the season schedule
+        //make a call to the season schedule--> this will be done in parent, child will only have to access Box Score endpoint
         
         
         if (HARD_CODE_FLAG == false){
@@ -91,64 +91,64 @@ class Chart extends React.Component{
 
     displayScheduledGame(schedule){
         outerLoop:
-            for (let weekIndex in schedule["weeks"] ){
-                let weekSchedule = schedule["weeks"][weekIndex]
-                for (let gameNum in weekSchedule['games'] ){
-                    let gameInfo = weekSchedule['games'][gameNum]
-                    if ((gameInfo["away"]["name"] == TEAM || gameInfo["home"]["name"] == TEAM) 
-                        && (gameInfo["status"] == "scheduled" || gameInfo["status"] == "created")){
-                        console.log(gameInfo)
-                        console.log(gameInfo["scheduled"])
-    
-                        const date_options = {   
-                                            weekday: "long", 
-                                            month: "numeric",
-                                            day: "numeric",
-                                            };
-                        
-                        const time_options = { 
-                                            hour:"numeric", 
-                                            minute:"numeric",  
-                                            timeZoneName: "short" 
-                                            };
-    
-                        let dateObj = new Date(gameInfo["scheduled"])
-                        this.setState({ nextGameFound: true, 
-                                        nextGameId: gameInfo['id'],
-                                        nextGameDateString: dateObj.toLocaleString([], date_options),
-                                        nextGameTimeString: dateObj.toLocaleString([], time_options),
-                                        nextGameTime: gameInfo["scheduled"],
-                                        nextGameWeek: (parseInt(weekIndex) + 1)
-                        }, () => {
-                            const timenow = new Date();
-                            let year = timenow.getFullYear();
-                            let month = timenow.getMonth() + 1;
-                            let day = timenow.getDate();
-                            let currDate = `${day}-${month}-${year}`
-                            let json = timenow.toJSON()
-                    
-                            console.log("Current time: " ,json)//print current time
-                    
-                            console.log(("Time of next game: "+ this.state.nextGameTime)) //print next game time
-                                        
-                            let msecondsTNG = Date.parse(this.state.nextGameTime) - Date.now()
-                    
-                            console.log("hours to next game", msecondsTNG/3600000)
+        for (let weekIndex in schedule["weeks"] ){
+            let weekSchedule = schedule["weeks"][weekIndex]
+            for (let gameNum in weekSchedule['games'] ){
+                let gameInfo = weekSchedule['games'][gameNum]
+                if ((gameInfo["away"]["name"] == TEAM || gameInfo["home"]["name"] == TEAM) 
+                    && (gameInfo["status"] == "scheduled" || gameInfo["status"] == "created")){
+                    console.log(gameInfo)
+                    console.log(gameInfo["scheduled"])
 
-                            setTimeout(this.handleGameScores, msecondsTNG)
+                    const date_options = {   
+                                        weekday: "long", 
+                                        month: "numeric",
+                                        day: "numeric",
+                                        };
+                    
+                    const time_options = { 
+                                        hour:"numeric", 
+                                        minute:"numeric",  
+                                        timeZoneName: "short" 
+                                        };
+
+                    let dateObj = new Date(gameInfo["scheduled"])
+                    this.setState({ nextGameFound: true, 
+                                    nextGameId: gameInfo['id'],
+                                    nextGameDateString: dateObj.toLocaleString([], date_options),
+                                    nextGameTimeString: dateObj.toLocaleString([], time_options),
+                                    nextGameTime: gameInfo["scheduled"],
+                                    nextGameWeek: (parseInt(weekIndex) + 1)
+                    }, () => {
+                        const timenow = new Date();
+                        let year = timenow.getFullYear();
+                        let month = timenow.getMonth() + 1;
+                        let day = timenow.getDate();
+                        let currDate = `${day}-${month}-${year}`
+                        let json = timenow.toJSON()
+                
+                        console.log("Current time: " ,json)//print current time
+                
+                        console.log(("Time of next game: "+ this.state.nextGameTime)) //print next game time
+                                    
+                        let msecondsTNG = Date.parse(this.state.nextGameTime) - Date.now()
+                
+                        console.log("hours to next game", msecondsTNG/3600000)
+
+                        setTimeout(this.handleGameScores, msecondsTNG)
+                    })
+                    break outerLoop;
+    
+                }
+                else if ((gameInfo["away"]["name"] == TEAM || gameInfo["home"]["name"] == TEAM) && gameInfo["status"] == "inprogress"){
+                        this.setState({nextGameFound: true,
+                        nextGameId: gameInfo['id'],
                         })
+                        setTimeout(this.handleGameScores, 0)
                         break outerLoop;
-        
-                    }
-                    else if ((gameInfo["away"]["name"] == TEAM || gameInfo["home"]["name"] == TEAM) && gameInfo["status"] == "inprogress"){
-                            this.setState({nextGameFound: true,
-                            nextGameId: gameInfo['id'],
-                            })
-                            setTimeout(this.handleGameScores, 0)
-                            break outerLoop;
-                    }
                 }
             }
+        }
     }
 
     handleGameScores(){

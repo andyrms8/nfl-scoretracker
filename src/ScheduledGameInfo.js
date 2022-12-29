@@ -10,30 +10,32 @@ class ScheduledGameInfo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            nextGameFound : false,
-            gameInProgress: true,
-            nextGameDateString : "",
-            nextGameTimeString: "",
-            nextGameWeek: 0,
-            nextGameTime: "",
-            nextGameId: "",
-            labels: [1],
-            awayScores:[0],
-            homeScores:[0],
-            intervalID:-1
+            // nextGameFound : false, //shouldnt need, parent will pass down game-id, ScheduledGameInfo will only be invoked when a game is found
+            // gameInProgress: true, //NEED
+            // nextGameDateString : "",//NEED
+            // nextGameTimeString: "", //NEED
+            // nextGameWeek: 0, //NEED
+            // nextGameTime: "", 
+            // nextGameId: "", //maybe just rename to game ID
+            // labels: [1], //don't need
+            // awayScores:[0], //don't need
+            // homeScores:[0], //don't need
+            // intervalID: -1 //don't need
         }
     }
 
     render(){
+        const {NextScheduledGame} = this.props
+
         return (
             <div style={{ width:1000}}>
                 
                 {}
-                    Next game: Week {state.nextGameWeek}
+                    Next game: Week {NextScheduledGame.week}
                     <br></br>
-                    Date: {state.nextGameDateString}
+                    Date: {NextScheduledGame.date}
                     <br></br>
-                    Time: {state.nextGameTimeString}
+                    Time: {NextScheduledGame.time}
           </div>
 
         )

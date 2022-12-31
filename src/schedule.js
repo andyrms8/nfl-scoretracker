@@ -21988,11 +21988,13 @@ const hardcoded_schedule =
                 },
                 {
                     "id": "b9ceeb26-c2c5-45ac-8a5f-f01639818e4c",
-                    "status": "created",
+                    "status": "closed",
                     "scheduled": "2022-12-25T18:00:00+00:00",
+                    "attendance": 66328,
                     "entry_mode": "LDE",
                     "sr_id": "sr:match:33623621",
                     "game_type": "regular",
+                    "duration": "2:59",
                     "venue": {
                         "id": "50a5c833-1570-4c38-abc7-7914cf87dbde",
                         "name": "Hard Rock Stadium",
@@ -22028,22 +22030,62 @@ const hardcoded_schedule =
                         "network": "FOX"
                     },
                     "weather": {
-                        "condition": "Partly cloudy",
-                        "humidity": 54,
-                        "temp": 49,
+                        "condition": "Overcast",
+                        "humidity": 68,
+                        "temp": 45,
                         "wind": {
-                            "speed": 8,
+                            "speed": 14,
                             "direction": "NW"
                         }
+                    },
+                    "scoring": {
+                        "home_points": 20,
+                        "away_points": 26,
+                        "periods": [
+                            {
+                                "period_type": "quarter",
+                                "id": "9ad9189a-db17-493e-b14e-0c0949df121d",
+                                "number": 1,
+                                "sequence": 1,
+                                "home_points": 10,
+                                "away_points": 10
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "434966eb-f1f2-427a-a891-f6c4a30a42c4",
+                                "number": 2,
+                                "sequence": 2,
+                                "home_points": 10,
+                                "away_points": 3
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "b503c144-d814-49fa-a819-63324dc15fb6",
+                                "number": 3,
+                                "sequence": 3,
+                                "home_points": 0,
+                                "away_points": 7
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "bc1a0629-3716-4689-bae3-d5efb5794840",
+                                "number": 4,
+                                "sequence": 4,
+                                "home_points": 0,
+                                "away_points": 6
+                            }
+                        ]
                     }
                 },
                 {
                     "id": "409f6cec-7369-48fc-b707-9a85621fe059",
-                    "status": "created",
+                    "status": "closed",
                     "scheduled": "2022-12-25T21:30:00+00:00",
+                    "attendance": 71525,
                     "entry_mode": "LDE",
                     "sr_id": "sr:match:33604181",
                     "game_type": "regular",
+                    "duration": "2:58",
                     "venue": {
                         "id": "790c1f04-73c6-4f6f-8b1e-78a62260be90",
                         "name": "SoFi Stadium",
@@ -22079,22 +22121,62 @@ const hardcoded_schedule =
                         "network": "CBS"
                     },
                     "weather": {
-                        "condition": "Clear",
-                        "humidity": 42,
-                        "temp": 70,
+                        "condition": "Sunny",
+                        "humidity": 14,
+                        "temp": 83,
                         "wind": {
                             "speed": 4,
-                            "direction": "SW"
+                            "direction": "WSW"
                         }
+                    },
+                    "scoring": {
+                        "home_points": 51,
+                        "away_points": 14,
+                        "periods": [
+                            {
+                                "period_type": "quarter",
+                                "id": "c5694f86-3e05-4dfe-afc7-a65d8b11a063",
+                                "number": 1,
+                                "sequence": 1,
+                                "home_points": 17,
+                                "away_points": 3
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "89bfd54c-2960-4637-ae16-04c3e6a18a67",
+                                "number": 2,
+                                "sequence": 2,
+                                "home_points": 14,
+                                "away_points": 3
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "01f3806b-ee3c-4f27-b83a-d2329b12e85c",
+                                "number": 3,
+                                "sequence": 3,
+                                "home_points": 3,
+                                "away_points": 0
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "09907389-8920-40e8-85c1-a9aa779e3005",
+                                "number": 4,
+                                "sequence": 4,
+                                "home_points": 17,
+                                "away_points": 8
+                            }
+                        ]
                     }
                 },
                 {
                     "id": "87097385-eb47-4932-89a0-656c35c0d285",
-                    "status": "created",
+                    "status": "closed",
                     "scheduled": "2022-12-26T01:20:00+00:00",
+                    "attendance": 63393,
                     "entry_mode": "LDE",
                     "sr_id": "sr:match:33623623",
                     "game_type": "regular",
+                    "duration": "3:31",
                     "venue": {
                         "id": "f8e4d2ab-53f9-4e9f-8c4a-9bc278094a84",
                         "name": "State Farm Stadium",
@@ -22131,21 +22213,69 @@ const hardcoded_schedule =
                     },
                     "weather": {
                         "condition": "Clear",
-                        "humidity": 23,
-                        "temp": 70,
+                        "humidity": 28,
+                        "temp": 66,
                         "wind": {
                             "speed": 2,
                             "direction": "N"
                         }
+                    },
+                    "scoring": {
+                        "home_points": 16,
+                        "away_points": 19,
+                        "periods": [
+                            {
+                                "period_type": "quarter",
+                                "id": "4427d69f-bcb7-4323-99e6-bf5d84999be8",
+                                "number": 1,
+                                "sequence": 1,
+                                "home_points": 3,
+                                "away_points": 3
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "62b0c103-9528-476b-b3ec-ceb7d20a6e99",
+                                "number": 2,
+                                "sequence": 2,
+                                "home_points": 3,
+                                "away_points": 3
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "2a98052e-d75c-496c-ba51-b0644ea78242",
+                                "number": 3,
+                                "sequence": 3,
+                                "home_points": 0,
+                                "away_points": 0
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "01eed67d-f635-42ba-b3ec-2f283197c5cc",
+                                "number": 4,
+                                "sequence": 4,
+                                "home_points": 10,
+                                "away_points": 10
+                            },
+                            {
+                                "period_type": "overtime",
+                                "id": "e1839996-bb8b-4583-aea6-920767c4944c",
+                                "number": 1,
+                                "sequence": 5,
+                                "home_points": 0,
+                                "away_points": 3
+                            }
+                        ]
                     }
                 },
                 {
                     "id": "9f0a94c7-439a-44f3-979a-ca66855ce34a",
-                    "status": "scheduled",
+                    "status": "closed",
                     "scheduled": "2022-12-27T01:15:00+00:00",
+                    "attendance": 65576,
                     "entry_mode": "LDE",
                     "sr_id": "sr:match:33623625",
                     "game_type": "regular",
+                    "duration": "2:48",
                     "venue": {
                         "id": "6ed18563-53e0-46c2-a91d-12d73a16456d",
                         "name": "Lucas Oil Stadium",
@@ -22180,6 +22310,53 @@ const hardcoded_schedule =
                     "broadcast": {
                         "network": "ESPN",
                         "satellite": "206"
+                    },
+                    "weather": {
+                        "condition": "Light Freezing Drizzle And Snow, Mist",
+                        "humidity": 88,
+                        "temp": 22,
+                        "wind": {
+                            "speed": 6,
+                            "direction": "SSE"
+                        }
+                    },
+                    "scoring": {
+                        "home_points": 3,
+                        "away_points": 20,
+                        "periods": [
+                            {
+                                "period_type": "quarter",
+                                "id": "70af83f3-55a3-4485-b61a-5042ea558119",
+                                "number": 1,
+                                "sequence": 1,
+                                "home_points": 0,
+                                "away_points": 0
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "41d6f6b7-bea7-47a7-9eb7-481d0f0f7dfd",
+                                "number": 2,
+                                "sequence": 2,
+                                "home_points": 3,
+                                "away_points": 10
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "1d6edfa9-6ff2-4709-b22e-b601c9a34786",
+                                "number": 3,
+                                "sequence": 3,
+                                "home_points": 0,
+                                "away_points": 3
+                            },
+                            {
+                                "period_type": "quarter",
+                                "id": "039a91d7-28f8-4ea6-9e6c-c94921d0a7bb",
+                                "number": 4,
+                                "sequence": 4,
+                                "home_points": 0,
+                                "away_points": 7
+                            }
+                        ]
                     }
                 }
             ]
@@ -22610,48 +22787,6 @@ const hardcoded_schedule =
                     }
                 },
                 {
-                    "id": "f96a8e3f-f7d4-4b8d-8a5d-9c5c0bf1d0e0",
-                    "status": "scheduled",
-                    "scheduled": "2023-01-01T18:00:00+00:00",
-                    "entry_mode": "LDE",
-                    "sr_id": "sr:match:33623631",
-                    "game_type": "regular",
-                    "venue": {
-                        "id": "d54faae0-0314-484f-8604-9d8dd08e1149",
-                        "name": "M&T Bank Stadium",
-                        "city": "Baltimore",
-                        "state": "MD",
-                        "country": "USA",
-                        "zip": "21230",
-                        "address": "1101 Russell Street",
-                        "capacity": 71008,
-                        "surface": "turf",
-                        "roof_type": "outdoor",
-                        "sr_id": "sr:venue:8169",
-                        "location": {
-                            "lat": "39.277995",
-                            "lng": "-76.622592"
-                        }
-                    },
-                    "home": {
-                        "id": "ebd87119-b331-4469-9ea6-d51fe3ce2f1c",
-                        "name": "Baltimore Ravens",
-                        "alias": "BAL",
-                        "game_number": 16,
-                        "sr_id": "sr:competitor:4413"
-                    },
-                    "away": {
-                        "id": "cb2f9f1f-ac67-424e-9e72-1475cb0ed398",
-                        "name": "Pittsburgh Steelers",
-                        "alias": "PIT",
-                        "game_number": 16,
-                        "sr_id": "sr:competitor:4345"
-                    },
-                    "broadcast": {
-                        "network": "CBS"
-                    }
-                },
-                {
                     "id": "397e9db0-eb0d-44ec-a579-848b32b116f2",
                     "status": "scheduled",
                     "scheduled": "2023-01-01T21:05:00+00:00",
@@ -22736,6 +22871,48 @@ const hardcoded_schedule =
                     }
                 },
                 {
+                    "id": "7d5ce394-4034-4ce3-b500-baff56fe0546",
+                    "status": "scheduled",
+                    "scheduled": "2023-01-01T21:25:00+00:00",
+                    "entry_mode": "LDE",
+                    "sr_id": "sr:match:33623655",
+                    "game_type": "regular",
+                    "venue": {
+                        "id": "790c1f04-73c6-4f6f-8b1e-78a62260be90",
+                        "name": "SoFi Stadium",
+                        "city": "Inglewood",
+                        "state": "CA",
+                        "country": "USA",
+                        "zip": "90301",
+                        "address": "1000 S Prairie Ave",
+                        "capacity": 70240,
+                        "surface": "artificial",
+                        "roof_type": "outdoor",
+                        "sr_id": "sr:venue:52183",
+                        "location": {
+                            "lat": "33.953536",
+                            "lng": "-118.338734"
+                        }
+                    },
+                    "home": {
+                        "id": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5",
+                        "name": "Los Angeles Chargers",
+                        "alias": "LAC",
+                        "game_number": 16,
+                        "sr_id": "sr:competitor:4429"
+                    },
+                    "away": {
+                        "id": "2eff2a03-54d4-46ba-890e-2bc3925548f3",
+                        "name": "Los Angeles Rams",
+                        "alias": "LA",
+                        "game_number": 16,
+                        "sr_id": "sr:competitor:4387"
+                    },
+                    "broadcast": {
+                        "network": "CBS"
+                    }
+                },
+                {
                     "id": "836f3e95-a59b-4ec2-8461-932548ca3acd",
                     "status": "scheduled",
                     "scheduled": "2023-01-01T21:25:00+00:00",
@@ -22778,42 +22955,42 @@ const hardcoded_schedule =
                     }
                 },
                 {
-                    "id": "7d5ce394-4034-4ce3-b500-baff56fe0546",
+                    "id": "f96a8e3f-f7d4-4b8d-8a5d-9c5c0bf1d0e0",
                     "status": "scheduled",
                     "scheduled": "2023-01-02T01:20:00+00:00",
                     "entry_mode": "LDE",
-                    "sr_id": "sr:match:33623655",
+                    "sr_id": "sr:match:33623631",
                     "game_type": "regular",
                     "venue": {
-                        "id": "790c1f04-73c6-4f6f-8b1e-78a62260be90",
-                        "name": "SoFi Stadium",
-                        "city": "Inglewood",
-                        "state": "CA",
+                        "id": "d54faae0-0314-484f-8604-9d8dd08e1149",
+                        "name": "M&T Bank Stadium",
+                        "city": "Baltimore",
+                        "state": "MD",
                         "country": "USA",
-                        "zip": "90301",
-                        "address": "1000 S Prairie Ave",
-                        "capacity": 70240,
-                        "surface": "artificial",
+                        "zip": "21230",
+                        "address": "1101 Russell Street",
+                        "capacity": 71008,
+                        "surface": "turf",
                         "roof_type": "outdoor",
-                        "sr_id": "sr:venue:52183",
+                        "sr_id": "sr:venue:8169",
                         "location": {
-                            "lat": "33.953536",
-                            "lng": "-118.338734"
+                            "lat": "39.277995",
+                            "lng": "-76.622592"
                         }
                     },
                     "home": {
-                        "id": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5",
-                        "name": "Los Angeles Chargers",
-                        "alias": "LAC",
+                        "id": "ebd87119-b331-4469-9ea6-d51fe3ce2f1c",
+                        "name": "Baltimore Ravens",
+                        "alias": "BAL",
                         "game_number": 16,
-                        "sr_id": "sr:competitor:4429"
+                        "sr_id": "sr:competitor:4413"
                     },
                     "away": {
-                        "id": "2eff2a03-54d4-46ba-890e-2bc3925548f3",
-                        "name": "Los Angeles Rams",
-                        "alias": "LA",
+                        "id": "cb2f9f1f-ac67-424e-9e72-1475cb0ed398",
+                        "name": "Pittsburgh Steelers",
+                        "alias": "PIT",
                         "game_number": 16,
-                        "sr_id": "sr:competitor:4387"
+                        "sr_id": "sr:competitor:4345"
                     },
                     "broadcast": {
                         "network": "NBC"
@@ -23496,8 +23673,7 @@ const hardcoded_schedule =
             ]
         }
     ],
-    "_comment": "Generation started @ 2022-12-25 05:44:17 UTC ended @ 2022-12-25 05:44:17 UTC"
+    "_comment": "Generation started @ 2022-12-29 02:44:34 UTC ended @ 2022-12-29 02:44:34 UTC"
 }
 
-
-export default hardcoded_schedule;
+export default hardcoded_schedule

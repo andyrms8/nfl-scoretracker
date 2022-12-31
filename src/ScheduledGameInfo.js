@@ -28,7 +28,7 @@ class ScheduledGameInfo extends React.Component {
         const {NextScheduledGame} = this.props
 
         return (
-            <div style={{ width:1000}}>
+            <div>
                 
                 {}
                     Next game: Week {NextScheduledGame.week}

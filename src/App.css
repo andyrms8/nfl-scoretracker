@@ -49,6 +49,14 @@
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 }
 
+.scheduledGame{
+  border: solid;
+  border-color: white;
+  border-width: 1vmin;
+  font-size: 4vmin;
+  margin: 1%;
+
+}
 
 @keyframes typing {
   from {

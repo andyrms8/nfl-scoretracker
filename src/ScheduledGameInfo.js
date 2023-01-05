@@ -6,37 +6,49 @@ import {Line} from 'react-chartjs-2';
 import schedule from './schedule.js'
 import game from './game.js';
 
+
+const date_options = {   
+    weekday: "long", 
+    month: "numeric",
+    day: "numeric",
+    };
+
+const time_options = { 
+            hour:"numeric", 
+            minute:"numeric",  
+            timeZoneName: "short" 
+            };
+
 class ScheduledGameInfo extends React.Component {
     constructor(props) {
         super(props)
+
+        //console.log("dateObj",dateObj)
         this.state = {
-            // nextGameFound : false, //shouldnt need, parent will pass down game-id, ScheduledGameInfo will only be invoked when a game is found
-            // gameInProgress: true, //NEED
-            // nextGameDateString : "",//NEED
-            // nextGameTimeString: "", //NEED
-            // nextGameWeek: 0, //NEED
-            // nextGameTime: "", 
-            // nextGameId: "", //maybe just rename to game ID
-            // labels: [1], //don't need
-            // awayScores:[0], //don't need
-            // homeScores:[0], //don't need
-            // intervalID: -1 //don't need
+            
+            // home: props.NextScheduledGame.gameData["home"]["name"],
+            // away: props.NextScheduledGame.gameData["away"]["name"],
+            // week: props.NextScheduledGame.week,
+            // date: dateObj.toLocaleString([], date_options),
+            // time: dateObj.toLocaleString([], time_options)
         }
+        //console.log("this.state.date", this.state.date)
     }
 
     render(){
-        const {NextScheduledGame} = this.props
-
+        const state = this.state
+        const dateObj = new Date(this.props.NextScheduledGame.gameData["scheduled"])
+        const away = this.props.NextScheduledGame.gameData["away"]["name"]
+        const home = this.props.NextScheduledGame.gameData["home"]["name"]
         return (
-            <div>
-                
-                {}
-                    Next game: Week {NextScheduledGame.week}
+            <div className='scheduledGame'>
+                  
+                    {away} at {home}    
                     <br></br>
-                    Date: {NextScheduledGame.date}
+                    Date: {dateObj.toLocaleString([], date_options)}
                     <br></br>
-                    Time: {NextScheduledGame.time}
-          </div>
+                    Time: {dateObj.toLocaleString([], time_options)}
+            </div>
 
         )
     }

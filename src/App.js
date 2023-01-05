@@ -2,8 +2,7 @@
 import React, { Component } from 'react'; //different
 import logo from './Bears.png';
 import './App.css';
-import {Line} from 'react-chartjs-2';
-import Page from './Page.js'
+import Page from './Page';
 
 class App extends React.Component {
   
@@ -18,7 +17,7 @@ class App extends React.Component {
           <div className='logo'>
             <img className='logo' src={logo} alt="bears logo" /> 
           </div>
-          <Page p1></Page>
+         <Page/>
          
         </header>
       </div>

@@ -1,4 +1,4 @@
-const hardcoded_schedule =
+const hardcoded_schedule = 
 {
     "id": "75749c10-56c1-4ae0-9d1e-2689708debdf",
     "year": 2022,
@@ -3700,9 +3700,11 @@ const hardcoded_schedule =
             "id": "381afd4d-bfe3-4c01-be10-ea85e2e57c18",
             "status": "closed",
             "scheduled": "2022-09-25T20:25:00+00:00",
+            "attendance": 69197,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623261",
             "game_type": "regular",
+            "duration": "3:00",
             "venue": {
                 "id": "6fccc39c-80bc-4c81-83d9-2d5a848c8c09",
                 "name": "Raymond James Stadium",
@@ -6774,9 +6776,11 @@ const hardcoded_schedule =
             "id": "befce21a-d8dd-416d-bad2-e104279f8823",
             "status": "closed",
             "scheduled": "2022-10-11T00:15:00+00:00",
+            "attendance": 73523,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623325",
             "game_type": "regular",
+            "duration": "3:08",
             "venue": {
                 "id": "2ec4c411-dac2-403d-b091-6b6aa4a0a914",
                 "name": "GEHA Field at Arrowhead Stadium",
@@ -19290,9 +19294,11 @@ const hardcoded_schedule =
             "id": "7c39576e-a060-40d8-8a32-e1a86b5ee7c0",
             "status": "closed",
             "scheduled": "2022-12-19T01:20:00+00:00",
+            "attendance": 61917,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623179",
             "game_type": "regular",
+            "duration": "3:07",
             "venue": {
                 "id": "7c11bb2d-4a53-4842-b842-0f1c63ed78e9",
                 "name": "FedExField",
@@ -21863,7 +21869,7 @@ const hardcoded_schedule =
             }
         }, {
             "id": "7d5ce394-4034-4ce3-b500-baff56fe0546",
-            "status": "complete",
+            "status": "closed",
             "scheduled": "2023-01-01T21:25:00+00:00",
             "attendance": 70240,
             "entry_mode": "LDE",
@@ -22033,11 +22039,13 @@ const hardcoded_schedule =
             }
         }, {
             "id": "f96a8e3f-f7d4-4b8d-8a5d-9c5c0bf1d0e0",
-            "status": "inprogress",
+            "status": "closed",
             "scheduled": "2023-01-02T01:20:00+00:00",
+            "attendance": 71042,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623631",
             "game_type": "regular",
+            "duration": "2:51",
             "venue": {
                 "id": "d54faae0-0314-484f-8604-9d8dd08e1149",
                 "name": "M&T Bank Stadium",
@@ -22080,10 +22088,43 @@ const hardcoded_schedule =
                     "speed": 2,
                     "direction": "N"
                 }
+            },
+            "scoring": {
+                "home_points": 13,
+                "away_points": 16,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "fa7e3457-a499-42e3-bccd-9c4dd393e47e",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 0,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "5bc14fe0-709c-467c-b80b-849e1330b403",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 10,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "cb886314-0c14-448a-b1c7-e3fa1a023b7d",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 3,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "74851ae0-9f26-4aba-b85d-4a0b1e03447f",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 0,
+                    "away_points": 10
+                }]
             }
         }, {
             "id": "7c0c0abf-f566-4a1f-a482-b74a991e1663",
-            "status": "scheduled",
+            "status": "cancelled",
             "scheduled": "2023-01-03T01:30:00+00:00",
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623657",
@@ -22109,14 +22150,12 @@ const hardcoded_schedule =
                 "id": "ad4ae08f-d808-42d5-a1e6-e9bc4e34d123",
                 "name": "Cincinnati Bengals",
                 "alias": "CIN",
-                "game_number": 16,
                 "sr_id": "sr:competitor:4416"
             },
             "away": {
                 "id": "768c92aa-75ff-4a43-bcc0-f2798c2e1724",
                 "name": "Buffalo Bills",
                 "alias": "BUF",
-                "game_number": 16,
                 "sr_id": "sr:competitor:4376"
             },
             "broadcast": {
@@ -22129,88 +22168,14 @@ const hardcoded_schedule =
         "sequence": 18,
         "title": "18",
         "games": [{
-            "id": "0b690459-804a-4f62-9625-077b0c3e21da",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
-            "entry_mode": "LDE",
-            "sr_id": "sr:match:33623699",
-            "game_type": "regular",
-            "venue": {
-                "id": "c6b9e5df-c9e4-434c-b3e6-83928f11cbda",
-                "name": "Lumen Field",
-                "city": "Seattle",
-                "state": "WA",
-                "country": "USA",
-                "zip": "98134",
-                "address": "800 Occidental Avenue South",
-                "capacity": 68000,
-                "surface": "artificial",
-                "roof_type": "outdoor",
-                "sr_id": "sr:venue:2291",
-                "location": {
-                    "lat": "47.595165",
-                    "lng": "-122.331650"
-                }
-            },
-            "home": {
-                "id": "3d08af9e-c767-4f88-a7dc-b920c6d2b4a8",
-                "name": "Seattle Seahawks",
-                "alias": "SEA",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4430"
-            },
-            "away": {
-                "id": "2eff2a03-54d4-46ba-890e-2bc3925548f3",
-                "name": "Los Angeles Rams",
-                "alias": "LA",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4387"
-            }
-        }, {
-            "id": "189c02f5-7832-41a3-b6ec-dfa9d244e095",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
-            "entry_mode": "LDE",
-            "sr_id": "sr:match:33623681",
-            "game_type": "regular",
-            "venue": {
-                "id": "6ed18563-53e0-46c2-a91d-12d73a16456d",
-                "name": "Lucas Oil Stadium",
-                "city": "Indianapolis",
-                "state": "IN",
-                "country": "USA",
-                "zip": "46225",
-                "address": "500 South Capitol Avenue",
-                "capacity": 67000,
-                "surface": "artificial",
-                "roof_type": "retractable_dome",
-                "sr_id": "sr:venue:8185",
-                "location": {
-                    "lat": "39.760008",
-                    "lng": "-86.163906"
-                }
-            },
-            "home": {
-                "id": "82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9",
-                "name": "Indianapolis Colts",
-                "alias": "IND",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4421"
-            },
-            "away": {
-                "id": "82d2d380-3834-4938-835f-aec541e5ece7",
-                "name": "Houston Texans",
-                "alias": "HOU",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4324"
-            }
-        }, {
             "id": "2d05d64f-24c6-4d1a-a682-e909f7fcccf9",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
+            "status": "closed",
+            "scheduled": "2023-01-07T21:30:00+00:00",
+            "attendance": 62136,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623697",
             "game_type": "regular",
+            "duration": "2:50",
             "venue": {
                 "id": "53d42601-5dfb-40a7-bd94-da2c1d3a75e4",
                 "name": "Allegiant Stadium",
@@ -22241,52 +22206,61 @@ const hardcoded_schedule =
                 "alias": "KC",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4422"
-            }
-        }, {
-            "id": "3ca61a46-2cef-4962-a481-f7ae6d7751eb",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
-            "entry_mode": "LDE",
-            "sr_id": "sr:match:33623679",
-            "game_type": "regular",
-            "venue": {
-                "id": "5a60dd3a-302c-41c6-ab0f-dd335c1103c2",
-                "name": "Lambeau Field",
-                "city": "Green Bay",
-                "state": "WI",
-                "country": "USA",
-                "zip": "54304",
-                "address": "1265 Lombardi Avenue",
-                "capacity": 81435,
-                "surface": "turf",
-                "roof_type": "outdoor",
-                "sr_id": "sr:venue:8183",
-                "location": {
-                    "lat": "44.501357",
-                    "lng": "-88.062440"
+            },
+            "broadcast": {
+                "network": "ABC"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 77,
+                "temp": 55,
+                "wind": {
+                    "speed": 9,
+                    "direction": "ENE"
                 }
             },
-            "home": {
-                "id": "a20471b4-a8d9-40c7-95ad-90cc30e46932",
-                "name": "Green Bay Packers",
-                "alias": "GB",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4420"
-            },
-            "away": {
-                "id": "c5a59daa-53a7-4de0-851f-fb12be893e9e",
-                "name": "Detroit Lions",
-                "alias": "DET",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4419"
+            "scoring": {
+                "home_points": 13,
+                "away_points": 31,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "a782a641-b43b-4308-b9fc-3c895d5adbff",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 3,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "f6be8099-f00d-48a2-a03f-82d9689c9539",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 0,
+                    "away_points": 17
+                }, {
+                    "period_type": "quarter",
+                    "id": "7a1ff878-f8c5-4de5-a630-9d6838d3f878",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 3,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "0855e419-dd8b-49a2-8e0e-360c78506264",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 7,
+                    "away_points": 7
+                }]
             }
         }, {
             "id": "521ea2e6-3f9b-4e15-b94c-cb76fa6ca785",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
+            "status": "closed",
+            "scheduled": "2023-01-08T01:15:00+00:00",
+            "attendance": 70050,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623683",
             "game_type": "regular",
+            "duration": "2:54",
             "venue": {
                 "id": "4c5c036d-dd3d-4183-b595-71a43a97560f",
                 "name": "TIAA Bank Field",
@@ -22317,14 +22291,146 @@ const hardcoded_schedule =
                 "alias": "TEN",
                 "game_number": 17,
                 "sr_id": "sr:competitor:367364"
+            },
+            "broadcast": {
+                "network": "ABC"
+            },
+            "weather": {
+                "condition": "Clear",
+                "humidity": 67,
+                "temp": 56,
+                "wind": {
+                    "speed": 4,
+                    "direction": "SSE"
+                }
+            },
+            "scoring": {
+                "home_points": 20,
+                "away_points": 16,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "16e81c90-b025-4f58-aaf6-707ad4842b0c",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 0,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "694a2bc8-d1d0-4ea7-b6de-44b828f05365",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 7,
+                    "away_points": 10
+                }, {
+                    "period_type": "quarter",
+                    "id": "8bd3e46b-cfde-4541-97c6-b5bd160e76cf",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 3,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "9ed30497-e1c7-438f-bfc7-59a3cc62a006",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 10,
+                    "away_points": 0
+                }]
+            }
+        }, {
+            "id": "189c02f5-7832-41a3-b6ec-dfa9d244e095",
+            "status": "closed",
+            "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 63655,
+            "entry_mode": "LDE",
+            "sr_id": "sr:match:33623681",
+            "game_type": "regular",
+            "duration": "3:09",
+            "venue": {
+                "id": "6ed18563-53e0-46c2-a91d-12d73a16456d",
+                "name": "Lucas Oil Stadium",
+                "city": "Indianapolis",
+                "state": "IN",
+                "country": "USA",
+                "zip": "46225",
+                "address": "500 South Capitol Avenue",
+                "capacity": 67000,
+                "surface": "artificial",
+                "roof_type": "retractable_dome",
+                "sr_id": "sr:venue:8185",
+                "location": {
+                    "lat": "39.760008",
+                    "lng": "-86.163906"
+                }
+            },
+            "home": {
+                "id": "82cf9565-6eb9-4f01-bdbd-5aa0d472fcd9",
+                "name": "Indianapolis Colts",
+                "alias": "IND",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4421"
+            },
+            "away": {
+                "id": "82d2d380-3834-4938-835f-aec541e5ece7",
+                "name": "Houston Texans",
+                "alias": "HOU",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4324"
+            },
+            "broadcast": {
+                "network": "CBS"
+            },
+            "weather": {
+                "condition": "Overcast",
+                "humidity": 75,
+                "temp": 36,
+                "wind": {
+                    "speed": 6,
+                    "direction": "NNE"
+                }
+            },
+            "scoring": {
+                "home_points": 31,
+                "away_points": 32,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "ab60630f-4a80-4672-92f5-80d46ec4d09c",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 7,
+                    "away_points": 10
+                }, {
+                    "period_type": "quarter",
+                    "id": "8555493b-089c-4c16-a0f4-2fd6fb699119",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 0,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "133ad1db-15c6-4c81-be59-a35568c9731e",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 14,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "b29cfe24-b0c4-4d9c-8dfa-4b46eead2bba",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 10,
+                    "away_points": 8
+                }]
             }
         }, {
             "id": "5301e285-9d4b-4991-8f64-059bfd6bad13",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 60007,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623675",
             "game_type": "regular",
+            "duration": "2:56",
             "venue": {
                 "id": "d7866605-5ac6-4b3a-90e8-760cc5a26b75",
                 "name": "Soldier Field",
@@ -22355,14 +22461,61 @@ const hardcoded_schedule =
                 "alias": "MIN",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4423"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 74,
+                "temp": 32,
+                "wind": {
+                    "speed": 2,
+                    "direction": "N"
+                }
+            },
+            "scoring": {
+                "home_points": 13,
+                "away_points": 29,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "f924226c-a4e9-416e-b84f-15e229d31575",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 0,
+                    "away_points": 6
+                }, {
+                    "period_type": "quarter",
+                    "id": "72b16be6-2ba0-4be8-9f57-48fdd419211a",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 6,
+                    "away_points": 10
+                }, {
+                    "period_type": "quarter",
+                    "id": "a8f0afbd-4252-414d-a1b7-adcdfd7a9957",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 7,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "250b3530-13e3-4e43-b5a8-13bc87a1e09d",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 0,
+                    "away_points": 6
+                }]
             }
         }, {
             "id": "7913a1bc-a010-474c-922a-22b0d552fb9c",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 65849,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623677",
             "game_type": "regular",
+            "duration": "3:22",
             "venue": {
                 "id": "b87a1595-d3c8-48ea-8a53-0aab6378a64a",
                 "name": "Paycor Stadium",
@@ -22384,7 +22537,7 @@ const hardcoded_schedule =
                 "id": "ad4ae08f-d808-42d5-a1e6-e9bc4e34d123",
                 "name": "Cincinnati Bengals",
                 "alias": "CIN",
-                "game_number": 17,
+                "game_number": 16,
                 "sr_id": "sr:competitor:4416"
             },
             "away": {
@@ -22393,52 +22546,61 @@ const hardcoded_schedule =
                 "alias": "BAL",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4413"
-            }
-        }, {
-            "id": "9038a474-aafe-4c67-94b2-72c9e387b206",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
-            "entry_mode": "LDE",
-            "sr_id": "sr:match:33623695",
-            "game_type": "regular",
-            "venue": {
-                "id": "6589e61d-ef1e-4e30-91b5-9acd2072b8a0",
-                "name": "Empower Field at Mile High",
-                "city": "Denver",
-                "state": "CO",
-                "country": "USA",
-                "zip": "80204",
-                "address": "1701 Mile High Stadium Circle",
-                "capacity": 76125,
-                "surface": "turf",
-                "roof_type": "outdoor",
-                "sr_id": "sr:venue:8179",
-                "location": {
-                    "lat": "39.743865",
-                    "lng": "-105.020158"
+            },
+            "broadcast": {
+                "network": "CBS"
+            },
+            "weather": {
+                "condition": "Overcast",
+                "humidity": 62,
+                "temp": 38,
+                "wind": {
+                    "speed": 7,
+                    "direction": "NE"
                 }
             },
-            "home": {
-                "id": "ce92bd47-93d5-4fe9-ada4-0fc681e6caa0",
-                "name": "Denver Broncos",
-                "alias": "DEN",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4418"
-            },
-            "away": {
-                "id": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5",
-                "name": "Los Angeles Chargers",
-                "alias": "LAC",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4429"
+            "scoring": {
+                "home_points": 27,
+                "away_points": 16,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "dcca1131-5ff0-4f7b-9c76-fc007a04ce6d",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 10,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "a7517742-56bd-4f8c-81ad-facc7d567d82",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 14,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "e7af0109-1c88-4081-b031-f7f183eca91f",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 3,
+                    "away_points": 6
+                }, {
+                    "period_type": "quarter",
+                    "id": "76262426-f2d6-43e5-a012-2a3c20f115c9",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 0,
+                    "away_points": 3
+                }]
             }
         }, {
             "id": "9163d9a1-945f-4b0f-9746-20eaf6a73de3",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 66429,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623685",
             "game_type": "regular",
+            "duration": "2:59",
             "venue": {
                 "id": "50a5c833-1570-4c38-abc7-7914cf87dbde",
                 "name": "Hard Rock Stadium",
@@ -22469,14 +22631,61 @@ const hardcoded_schedule =
                 "alias": "NYJ",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4427"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 66,
+                "temp": 75,
+                "wind": {
+                    "speed": 9,
+                    "direction": "E"
+                }
+            },
+            "scoring": {
+                "home_points": 11,
+                "away_points": 6,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "736060bb-76bd-4582-9b8c-99b8e888d83c",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 0,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "0c4fa2a4-6d58-4806-a44a-acbdf5780e86",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 3,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "1fed3a29-3654-434a-8e03-23bfd850b2f6",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 3,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "3688cd1b-cf61-4970-94a2-ae51e5829bd3",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 5,
+                    "away_points": 3
+                }]
             }
         }, {
             "id": "9cfe315e-1497-41cf-b39c-deff6371f471",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 70118,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623687",
             "game_type": "regular",
+            "duration": "2:43",
             "venue": {
                 "id": "3c85d89a-ec66-4983-acd5-1381d6c8673a",
                 "name": "Caesars Superdome",
@@ -22507,52 +22716,61 @@ const hardcoded_schedule =
                 "alias": "CAR",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4415"
-            }
-        }, {
-            "id": "acb4aaf3-8850-4b35-abc6-d0f8f6824905",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
-            "entry_mode": "LDE",
-            "sr_id": "sr:match:33623689",
-            "game_type": "regular",
-            "venue": {
-                "id": "4fa8c29c-6626-464c-8540-314ed7535e1b",
-                "name": "Lincoln Financial Field",
-                "city": "Philadelphia",
-                "state": "PA",
-                "country": "USA",
-                "zip": "19148",
-                "address": "1020 Pattison Avenue",
-                "capacity": 69596,
-                "surface": "turf",
-                "roof_type": "outdoor",
-                "sr_id": "sr:venue:1833",
-                "location": {
-                    "lat": "39.900872",
-                    "lng": "-75.167311"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Heavy Rain, Mist",
+                "humidity": 96,
+                "temp": 62,
+                "wind": {
+                    "speed": 4,
+                    "direction": "ENE"
                 }
             },
-            "home": {
-                "id": "386bdbf9-9eea-4869-bb9a-274b0bc66e80",
-                "name": "Philadelphia Eagles",
-                "alias": "PHI",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4428"
-            },
-            "away": {
-                "id": "04aa1c9d-66da-489d-b16a-1dee3f2eec4d",
-                "name": "New York Giants",
-                "alias": "NYG",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4426"
+            "scoring": {
+                "home_points": 7,
+                "away_points": 10,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "9c7e74c3-2a1c-4a2f-9a22-5a2ea85c820d",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 7,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "ca99b48b-d857-4976-a755-5b5d8b06adcb",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 0,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "97834294-e0ce-4e22-a725-b76c33697b59",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 0,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "2f32aa26-b6fa-4c69-a8c2-fa15fdd5ec19",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 0,
+                    "away_points": 3
+                }]
             }
         }, {
             "id": "b3e960cd-6f6f-4da2-897c-ec30a9285e65",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 70753,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623673",
             "game_type": "regular",
+            "duration": "3:08",
             "venue": {
                 "id": "e9e0828e-37fc-4238-a317-49037577dd55",
                 "name": "Highmark Stadium",
@@ -22574,7 +22792,7 @@ const hardcoded_schedule =
                 "id": "768c92aa-75ff-4a43-bcc0-f2798c2e1724",
                 "name": "Buffalo Bills",
                 "alias": "BUF",
-                "game_number": 17,
+                "game_number": 16,
                 "sr_id": "sr:competitor:4376"
             },
             "away": {
@@ -22583,52 +22801,61 @@ const hardcoded_schedule =
                 "alias": "NE",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4424"
-            }
-        }, {
-            "id": "b4adc1bb-a794-42ee-bd33-09646ea596e7",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
-            "entry_mode": "LDE",
-            "sr_id": "sr:match:33623701",
-            "game_type": "regular",
-            "venue": {
-                "id": "24c71dbf-6469-46f1-8165-22005c295c8f",
-                "name": "Levi's Stadium",
-                "city": "Santa Clara",
-                "state": "CA",
-                "country": "USA",
-                "zip": "95054",
-                "address": "4900 Marie P DeBartolo Way",
-                "capacity": 68500,
-                "surface": "turf",
-                "roof_type": "outdoor",
-                "sr_id": "sr:venue:15672",
-                "location": {
-                    "lat": "37.403000",
-                    "lng": "-121.970000"
+            },
+            "broadcast": {
+                "network": "CBS"
+            },
+            "weather": {
+                "condition": "Overcast",
+                "humidity": 74,
+                "temp": 30,
+                "wind": {
+                    "speed": 6,
+                    "direction": "WSW"
                 }
             },
-            "home": {
-                "id": "f0e724b0-4cbf-495a-be47-013907608da9",
-                "name": "San Francisco 49ers",
-                "alias": "SF",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4389"
-            },
-            "away": {
-                "id": "de760528-1dc0-416a-a978-b510d20692ff",
-                "name": "Arizona Cardinals",
-                "alias": "ARI",
-                "game_number": 17,
-                "sr_id": "sr:competitor:4412"
+            "scoring": {
+                "home_points": 35,
+                "away_points": 23,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "bb4c9981-48df-4755-8041-87f8bd221fbb",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 7,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "95c230c2-1414-47ac-af1e-6557642ceb2e",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 7,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "1ef41f7f-5b35-4796-87be-b1074b7221b3",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 14,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "ff6940c5-af24-4cad-87e2-3775f2e85ea5",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 7,
+                    "away_points": 6
+                }]
             }
         }, {
             "id": "d714479c-d97d-4aad-9c71-0833ed049647",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 69276,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623671",
             "game_type": "regular",
+            "duration": "2:50",
             "venue": {
                 "id": "1f2d393b-2291-4835-a412-0714966ea245",
                 "name": "Mercedes-Benz Stadium",
@@ -22659,14 +22886,61 @@ const hardcoded_schedule =
                 "alias": "TB",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4388"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 69,
+                "temp": 57,
+                "wind": {
+                    "speed": 7,
+                    "direction": "SSE"
+                }
+            },
+            "scoring": {
+                "home_points": 30,
+                "away_points": 17,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "dc873efa-2482-4c9c-8d55-63e2a57fa2ae",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 10,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "65636100-34b8-467f-acd1-ed2d035367a2",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 0,
+                    "away_points": 10
+                }, {
+                    "period_type": "quarter",
+                    "id": "47be6100-ba52-41f5-89da-975ec2a6a20f",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 10,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "25c9f81c-d5eb-47a1-8c0f-160d17e8acbe",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 10,
+                    "away_points": 0
+                }]
             }
         }, {
             "id": "e6b71fe7-ecb3-4931-ad91-907dee42c561",
-            "status": "flex-schedule",
+            "status": "closed",
             "scheduled": "2023-01-08T18:00:00+00:00",
+            "attendance": 65019,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623691",
             "game_type": "regular",
+            "duration": "3:04",
             "venue": {
                 "id": "7349a2e6-0ac9-410b-8bd2-ca58c9f7aa34",
                 "name": "Acrisure Stadium",
@@ -22697,14 +22971,408 @@ const hardcoded_schedule =
                 "alias": "CLE",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4417"
+            },
+            "broadcast": {
+                "network": "CBS"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 64,
+                "temp": 36,
+                "wind": {
+                    "speed": 8,
+                    "direction": "ENE"
+                }
+            },
+            "scoring": {
+                "home_points": 28,
+                "away_points": 14,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "d9e3d91c-799e-4a0a-9c4b-64bbf84cb343",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 0,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "7bec2fde-e8fc-4395-95f0-c7fbc7670e36",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 10,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "be636b5d-7cc5-4712-971e-de1741eac0c3",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 10,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "11b1d13b-7500-4f57-8a78-851c5d5775d8",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 8,
+                    "away_points": 7
+                }]
+            }
+        }, {
+            "id": "0b690459-804a-4f62-9625-077b0c3e21da",
+            "status": "closed",
+            "scheduled": "2023-01-08T21:25:00+00:00",
+            "attendance": 68660,
+            "entry_mode": "LDE",
+            "sr_id": "sr:match:33623699",
+            "game_type": "regular",
+            "duration": "3:07",
+            "venue": {
+                "id": "c6b9e5df-c9e4-434c-b3e6-83928f11cbda",
+                "name": "Lumen Field",
+                "city": "Seattle",
+                "state": "WA",
+                "country": "USA",
+                "zip": "98134",
+                "address": "800 Occidental Avenue South",
+                "capacity": 68000,
+                "surface": "artificial",
+                "roof_type": "outdoor",
+                "sr_id": "sr:venue:2291",
+                "location": {
+                    "lat": "47.595165",
+                    "lng": "-122.331650"
+                }
+            },
+            "home": {
+                "id": "3d08af9e-c767-4f88-a7dc-b920c6d2b4a8",
+                "name": "Seattle Seahawks",
+                "alias": "SEA",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4430"
+            },
+            "away": {
+                "id": "2eff2a03-54d4-46ba-890e-2bc3925548f3",
+                "name": "Los Angeles Rams",
+                "alias": "LA",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4387"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Light Rain, Mist",
+                "humidity": 100,
+                "temp": 45,
+                "wind": {
+                    "speed": 4,
+                    "direction": "ESE"
+                }
+            },
+            "scoring": {
+                "home_points": 19,
+                "away_points": 16,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "4f38192d-1a28-419c-b8d4-8a4d462c3871",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 6,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "c5743cd2-d06d-4682-bd90-4da9b77d7807",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 0,
+                    "away_points": 10
+                }, {
+                    "period_type": "quarter",
+                    "id": "c48d6807-66cb-4c19-ab73-46f59bb49bed",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 7,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "75a67b16-fc20-4044-8b5a-94ab96ff508a",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 3,
+                    "away_points": 0
+                }, {
+                    "period_type": "overtime",
+                    "id": "c1c3b908-0a96-42c7-ad59-80fad179abb2",
+                    "number": 1,
+                    "sequence": 5,
+                    "home_points": 3,
+                    "away_points": 0
+                }]
+            }
+        }, {
+            "id": "9038a474-aafe-4c67-94b2-72c9e387b206",
+            "status": "closed",
+            "scheduled": "2023-01-08T21:25:00+00:00",
+            "attendance": 74035,
+            "entry_mode": "LDE",
+            "sr_id": "sr:match:33623695",
+            "game_type": "regular",
+            "duration": "3:03",
+            "venue": {
+                "id": "6589e61d-ef1e-4e30-91b5-9acd2072b8a0",
+                "name": "Empower Field at Mile High",
+                "city": "Denver",
+                "state": "CO",
+                "country": "USA",
+                "zip": "80204",
+                "address": "1701 Mile High Stadium Circle",
+                "capacity": 76125,
+                "surface": "turf",
+                "roof_type": "outdoor",
+                "sr_id": "sr:venue:8179",
+                "location": {
+                    "lat": "39.743865",
+                    "lng": "-105.020158"
+                }
+            },
+            "home": {
+                "id": "ce92bd47-93d5-4fe9-ada4-0fc681e6caa0",
+                "name": "Denver Broncos",
+                "alias": "DEN",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4418"
+            },
+            "away": {
+                "id": "1f6dcffb-9823-43cd-9ff4-e7a8466749b5",
+                "name": "Los Angeles Chargers",
+                "alias": "LAC",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4429"
+            },
+            "broadcast": {
+                "network": "CBS"
+            },
+            "weather": {
+                "condition": "Sunny",
+                "humidity": 39,
+                "temp": 43,
+                "wind": {
+                    "speed": 4,
+                    "direction": "NNE"
+                }
+            },
+            "scoring": {
+                "home_points": 31,
+                "away_points": 28,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "43d8ab0e-bd21-4919-bc99-c8dc46124132",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 7,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "0c472a93-320b-4f92-b617-982916edefa3",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 10,
+                    "away_points": 10
+                }, {
+                    "period_type": "quarter",
+                    "id": "fff538e1-cb9d-4d99-ba3a-c521bc6b67bc",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 7,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "787c0a47-5691-44d5-9ef8-e5cf835693e1",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 7,
+                    "away_points": 8
+                }]
+            }
+        }, {
+            "id": "acb4aaf3-8850-4b35-abc6-d0f8f6824905",
+            "status": "closed",
+            "scheduled": "2023-01-08T21:25:00+00:00",
+            "attendance": 69879,
+            "entry_mode": "LDE",
+            "sr_id": "sr:match:33623689",
+            "game_type": "regular",
+            "duration": "2:57",
+            "venue": {
+                "id": "4fa8c29c-6626-464c-8540-314ed7535e1b",
+                "name": "Lincoln Financial Field",
+                "city": "Philadelphia",
+                "state": "PA",
+                "country": "USA",
+                "zip": "19148",
+                "address": "1020 Pattison Avenue",
+                "capacity": 69596,
+                "surface": "turf",
+                "roof_type": "outdoor",
+                "sr_id": "sr:venue:1833",
+                "location": {
+                    "lat": "39.900872",
+                    "lng": "-75.167311"
+                }
+            },
+            "home": {
+                "id": "386bdbf9-9eea-4869-bb9a-274b0bc66e80",
+                "name": "Philadelphia Eagles",
+                "alias": "PHI",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4428"
+            },
+            "away": {
+                "id": "04aa1c9d-66da-489d-b16a-1dee3f2eec4d",
+                "name": "New York Giants",
+                "alias": "NYG",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4426"
+            },
+            "broadcast": {
+                "network": "CBS"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 55,
+                "temp": 43,
+                "wind": {
+                    "speed": 12,
+                    "direction": "SSW"
+                }
+            },
+            "scoring": {
+                "home_points": 22,
+                "away_points": 16,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "ba6067e1-363a-4494-8d86-eab48a240662",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 10,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "990febca-f8d1-47b4-9b7c-0cafc88eaa24",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 6,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "446f3671-7867-43a9-b767-7e62d696de3d",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 3,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "c5a18f57-8ac2-483b-9fa6-dd440025c00f",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 3,
+                    "away_points": 13
+                }]
+            }
+        }, {
+            "id": "b4adc1bb-a794-42ee-bd33-09646ea596e7",
+            "status": "closed",
+            "scheduled": "2023-01-08T21:25:00+00:00",
+            "attendance": 71638,
+            "entry_mode": "LDE",
+            "sr_id": "sr:match:33623701",
+            "game_type": "regular",
+            "duration": "2:52",
+            "venue": {
+                "id": "24c71dbf-6469-46f1-8165-22005c295c8f",
+                "name": "Levi's Stadium",
+                "city": "Santa Clara",
+                "state": "CA",
+                "country": "USA",
+                "zip": "95054",
+                "address": "4900 Marie P DeBartolo Way",
+                "capacity": 68500,
+                "surface": "turf",
+                "roof_type": "outdoor",
+                "sr_id": "sr:venue:15672",
+                "location": {
+                    "lat": "37.403000",
+                    "lng": "-121.970000"
+                }
+            },
+            "home": {
+                "id": "f0e724b0-4cbf-495a-be47-013907608da9",
+                "name": "San Francisco 49ers",
+                "alias": "SF",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4389"
+            },
+            "away": {
+                "id": "de760528-1dc0-416a-a978-b510d20692ff",
+                "name": "Arizona Cardinals",
+                "alias": "ARI",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4412"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Partly cloudy",
+                "humidity": 77,
+                "temp": 57,
+                "wind": {
+                    "speed": 2,
+                    "direction": "N"
+                }
+            },
+            "scoring": {
+                "home_points": 38,
+                "away_points": 13,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "33b74c90-04b5-49a2-9aca-823c089a74d8",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 7,
+                    "away_points": 6
+                }, {
+                    "period_type": "quarter",
+                    "id": "e57f5ebb-a1dd-4a08-a882-21ecff5bdce9",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 14,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "4ac81816-b047-4fd9-af46-19a65b93d5ce",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 17,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "09619566-bf9f-4f7f-b6d8-1b72e4b5a314",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 0,
+                    "away_points": 0
+                }]
             }
         }, {
             "id": "fdc4acd7-da9d-4dd0-b1ab-206432a5f781",
-            "status": "flex-schedule",
-            "scheduled": "2023-01-08T18:00:00+00:00",
+            "status": "closed",
+            "scheduled": "2023-01-08T21:25:00+00:00",
+            "attendance": 62814,
             "entry_mode": "LDE",
             "sr_id": "sr:match:33623693",
             "game_type": "regular",
+            "duration": "3:03",
             "venue": {
                 "id": "7c11bb2d-4a53-4842-b842-0f1c63ed78e9",
                 "name": "FedExField",
@@ -22735,10 +23403,140 @@ const hardcoded_schedule =
                 "alias": "DAL",
                 "game_number": 17,
                 "sr_id": "sr:competitor:4392"
+            },
+            "broadcast": {
+                "network": "FOX"
+            },
+            "weather": {
+                "condition": "Overcast",
+                "humidity": 53,
+                "temp": 42,
+                "wind": {
+                    "speed": 7,
+                    "direction": "S"
+                }
+            },
+            "scoring": {
+                "home_points": 26,
+                "away_points": 6,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "119030ed-e303-4249-b971-67f6a588bfc2",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 7,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "fefe9416-a9cc-44fb-86c2-b9f8a285cafb",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 6,
+                    "away_points": 6
+                }, {
+                    "period_type": "quarter",
+                    "id": "0bd0d78d-a821-41a6-925e-c64c8054027f",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 7,
+                    "away_points": 0
+                }, {
+                    "period_type": "quarter",
+                    "id": "a13b8137-bda7-42c1-8273-0dac65b26ba4",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 6,
+                    "away_points": 0
+                }]
+            }
+        }, {
+            "id": "3ca61a46-2cef-4962-a481-f7ae6d7751eb",
+            "status": "closed",
+            "scheduled": "2023-01-09T01:20:00+00:00",
+            "attendance": 78191,
+            "entry_mode": "LDE",
+            "sr_id": "sr:match:33623679",
+            "game_type": "regular",
+            "duration": "2:59",
+            "venue": {
+                "id": "5a60dd3a-302c-41c6-ab0f-dd335c1103c2",
+                "name": "Lambeau Field",
+                "city": "Green Bay",
+                "state": "WI",
+                "country": "USA",
+                "zip": "54304",
+                "address": "1265 Lombardi Avenue",
+                "capacity": 81435,
+                "surface": "turf",
+                "roof_type": "outdoor",
+                "sr_id": "sr:venue:8183",
+                "location": {
+                    "lat": "44.501357",
+                    "lng": "-88.062440"
+                }
+            },
+            "home": {
+                "id": "a20471b4-a8d9-40c7-95ad-90cc30e46932",
+                "name": "Green Bay Packers",
+                "alias": "GB",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4420"
+            },
+            "away": {
+                "id": "c5a59daa-53a7-4de0-851f-fb12be893e9e",
+                "name": "Detroit Lions",
+                "alias": "DET",
+                "game_number": 17,
+                "sr_id": "sr:competitor:4419"
+            },
+            "broadcast": {
+                "network": "NBC"
+            },
+            "weather": {
+                "condition": "Overcast",
+                "humidity": 92,
+                "temp": 21,
+                "wind": {
+                    "speed": 4,
+                    "direction": "SW"
+                }
+            },
+            "scoring": {
+                "home_points": 16,
+                "away_points": 20,
+                "periods": [{
+                    "period_type": "quarter",
+                    "id": "49d65613-cbec-44c6-8b8b-7e41e0126103",
+                    "number": 1,
+                    "sequence": 1,
+                    "home_points": 6,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "b06269d4-5821-44c5-a637-1ebbcbda78d4",
+                    "number": 2,
+                    "sequence": 2,
+                    "home_points": 3,
+                    "away_points": 3
+                }, {
+                    "period_type": "quarter",
+                    "id": "fa622f44-a8a4-4317-911e-9bccc5d88ec0",
+                    "number": 3,
+                    "sequence": 3,
+                    "home_points": 7,
+                    "away_points": 7
+                }, {
+                    "period_type": "quarter",
+                    "id": "5d0d7741-96ac-4953-a7d9-9723bcea3f0e",
+                    "number": 4,
+                    "sequence": 4,
+                    "home_points": 0,
+                    "away_points": 7
+                }]
             }
         }]
     }],
-    "_comment": "Generation started @ 2023-01-02 03:26:42 UTC ended @ 2023-01-02 03:26:43 UTC"
+    "_comment": "Generation started @ 2023-01-14 01:12:53 UTC ended @ 2023-01-14 01:12:54 UTC"
 }
 
 export default hardcoded_schedule;

@@ -22,9 +22,10 @@ class RecentGames extends React.Component{
     render(){
 
         const charts = this.returnRecentGameMappings()
+        const seasonType = this.props.season === 'REG' ?  'Regular Season ' : 'Playoffs '
         return (<div>
-
-            Current/Past Games
+            {seasonType}
+             Week {this.props.recentWeekNum}
             {charts}
         </div>)
     }

@@ -2,7 +2,7 @@
   "name": "scoretracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://andyrms8.github.io/nfl-scoretracker/",
+  "homepage": "https://andyrms8.github.io/nfl-scoretracker",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

@@ -7,18 +7,20 @@ import game from './game.js';
 import { plugins } from 'chart.js/auto';
 import overtime from './overtime.js'
 import hardcoded_game_in_progress_early from './gameInProgressEarly'
+import hardcoded_game_in_progress_late from './gameInProgressLate'
 
 
-const API_KEY_ARRAY = ["ej4vj5g8enqynbjy9ysrfcxk", "fpdyxywaa7tnbd5db9qq47d8", "mufeknj78chgd66rbvmfcc68"]
-const API_KEY = API_KEY_ARRAY[2]
-const YEAR = "2022"
+
+const API_KEY_ARRAY = [ "fpdyxywaa7tnbd5db9qq47d8", "mufeknj78chgd66rbvmfcc68","cnvtpxu6xxma5k8uuedzhm98", "ej4vj5g8enqynbjy9ysrfcxk"]
+const API_KEY = "cnvtpxu6xxma5k8uuedzhm98"
+const YEAR = "2023"
 const SEASON = "REG"; //3 types: PRE, REG, PST
-const HARD_CODE_FLAG = true;
+const HARD_CODE_FLAG = false;
 
 
 const PROXY_URL = 'https://cryptic-scrubland-72951.herokuapp.com/'
 
-const PRINT_FLAG = false;
+const PRINT_FLAG = true;
 
 export function print(msg, obj = 0) {
     if (PRINT_FLAG == true){
@@ -30,7 +32,7 @@ export function print(msg, obj = 0) {
 const requestOptions = {
     method: 'GET',
     headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:3001',
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
         'Access-Control-Allow-Methods': 'GET',
         'Access-Control-Allow-Credentials': 'true'
     },
@@ -105,7 +107,7 @@ class Chart extends React.Component{
         if (HARD_CODE_FLAG ){//code in here will replace the else clause  
             this.setState({dataFetched:true})
             print("Game data:", game)
-            this.setState({gameInfo: hardcoded_game_in_progress_early}, ()=>{this.updateData()})
+            this.setState({gameInfo: hardcoded_game_in_progress_late}, ()=>{this.updateData()})
             
         }
         print("----------Chart Component FetchBoxScoreData() ended execution.----------")
@@ -329,7 +331,7 @@ class Chart extends React.Component{
         }
 
         return (
-            <div style={{ width:700}}>
+            <div className='startedGame'>
                 {nextGameTitle}
                 <Line data= {{   
                                 labels: state.labels,  

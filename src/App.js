@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'; //different
-import logo from './Bears.png';
+import logo from './assets/images/nfl_logo.png';
 import './App.css';
 import Page from './Page';
 

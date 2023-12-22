@@ -20927,7 +20927,7 @@ const hardcoded_schedule =
             }
         }, {
             "id": "1be368b9-7379-4d76-b954-9d3e7eefc1c1",
-            "status": "closed",
+            "status": "inprogress", //hack for harcoded data
             "scheduled": "2023-01-01T18:00:00+00:00",
             "attendance": 65878,
             "entry_mode": "LDE",

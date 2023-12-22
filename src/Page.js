@@ -9,8 +9,8 @@ import hardcoded_schedule from './schedule.js';
 
 
 const API_KEY_ARRAY = ["ej4vj5g8enqynbjy9ysrfcxk", "fpdyxywaa7tnbd5db9qq47d8", "mufeknj78chgd66rbvmfcc68"]
-const API_KEY = API_KEY_ARRAY[2]
-const YEAR = "2022"
+const API_KEY = "z5tetu8hua4n8xtszw5pktgd" //cnvtpxu6xxma5k8uuedzhm98
+const YEAR = "2023"
 //const season = "REG"; //3 types: PRE, REG, PST
 const HARD_CODE_FLAG = false;
 
@@ -19,13 +19,13 @@ const PROXY_URL = 'https://cryptic-scrubland-72951.herokuapp.com/'
 const requestOptions = {
     method: 'GET',
     headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:3001',
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
         'Access-Control-Allow-Methods': 'GET',
         'Access-Control-Allow-Credentials': 'true'
     },
 };
 
-const PRINT_FLAG = false;
+const PRINT_FLAG = true;
 
 export function print(msg, obj = 0) {
     if (PRINT_FLAG == true){
@@ -159,9 +159,12 @@ class Page extends React.Component{
 
         for (let weekIndex in schedule["weeks"] ){
             let weekSchedule = schedule["weeks"][weekIndex]
-            let lastGameTimeOfWeek = weekSchedule['games'][weekSchedule['games'].length - 1]["scheduled"]
+            let lastGameOfWeek = weekSchedule['games'][weekSchedule['games'].length - 1]
             
-            if (Date.parse(lastGameTimeOfWeek) - Date.now() > 0 && upcomingWeekNumFound == false) { //found the week we're in
+            print("weekIndex: ", weekIndex )
+            print("schedule[weeks].length: ", schedule["weeks"].length)
+            print("this.state.season:" , this.state.season)
+            if ( (Date.parse(lastGameOfWeek["scheduled"]) - Date.now() > 0 && upcomingWeekNumFound == false) || ((Number(weekIndex) + 1 == schedule["weeks"].length) && this.state.season == "PST")) { //found the week we're in or we're past the last week
                 print("WE ARE IN WEEK # ", Number(weekIndex) + 1)
                 
                 upcomingWeekNumFound = true;
@@ -179,7 +182,7 @@ class Page extends React.Component{
                         console.error("SOMEHOW WE HAVE A GAME THAT IS NEITHER: scheduled, inprogress, closed, created, or flex-schedule. its status is", gameInfo[''], )
                     }
                 }
-                if (past_current.length == 0){ //if no games have have started for the upcoming week show game charts from last week
+                if (past_current.length == 0){ //if no games have have started for the upcoming week, show game charts from last week
                     if(weekIndex != 0){ // and if the upcoming week isn't week 1
                         past_current = [...schedule["weeks"][weekIndex - 1]['games']].reverse().map( game => game["id"])  
                         this.setState({recentWeekNum: Number(weekIndex)}) //set recentWeekNum to last week = weekIndex = 1 less than upcomingWeekNum
@@ -196,8 +199,12 @@ class Page extends React.Component{
                 print("weekSchedule['games'] :", weekSchedule['games']);
                 this.setState({upcomingWeekNum: Number(weekIndex) + 1, upcomingGamesList: upcoming, recentGamesList: past_current})
 
-                let msecondsTNG = Date.parse(upcoming[0]["scheduled"]) - Date.now()
-                setTimeout(this.moveUpcomingToRecent, msecondsTNG);
+                if (upcoming.length > 0){ //as long as there's are still upcoming games (Superbowl is not over)
+                    let msecondsTNG = Date.parse(upcoming[0]["scheduled"]) - Date.now()
+                    setTimeout(this.moveUpcomingToRecent, msecondsTNG);
+                }
+                
+                
 
                 break
             }
@@ -238,14 +245,14 @@ class Page extends React.Component{
 
             if (pageType == 1) { 
                 return( 
-                    <div> <RecentGames recentGamesList= {this.state.recentGamesList} recentWeekNum = {state.recentWeekNum} regseasonEnded = {state.season == 'PST'}/></div>
+                    <div> <RecentGames recentGamesList= {this.state.recentGamesList} recentWeekNum = {state.recentWeekNum} regseasonEnded = {state.season == 'REG'}/></div>
                 )
             }
 
             else if (pageType == 2){ 
                 return (
                     <div style={{ width:1000}}>
-                        <ScheduledGames upcomingGamesList={state.upcomingGamesList} upcomingWeekNum={state.upcomingWeekNum} regseasonEnded = {state.season == 'PST'}/>
+                        <ScheduledGames upcomingGamesList={state.upcomingGamesList} upcomingWeekNum={state.upcomingWeekNum} regseasonEnded = {state.season == 'REG'}/>
                     </div>
                 )
             }
@@ -253,7 +260,7 @@ class Page extends React.Component{
             else if (pageType == 3 && this.state.upcomingWeekNum!= -1 ){
                 return (
                     <div style={{ width:700, borderColor:'red'}} >
-                    <SelectedTeamInfo schedule={state.schedule} recentWeekNum={state.recentWeekNum} upcomingWeekNum={state.upcomingWeekNum} regseasonEnded = {state.season == 'PST'} />
+                    <SelectedTeamInfo schedule={state.schedule} recentWeekNum={state.recentWeekNum} upcomingWeekNum={state.upcomingWeekNum} regseasonEnded = {state.season == 'REG'} />
                     </div>
                 )
             }

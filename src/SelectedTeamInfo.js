@@ -99,10 +99,11 @@ function SelectedTeamInfo(props){
         print("props.regseasonEnded: ", props.regseasonEnded)
         if (props.regseasonEnded == false){
 
-            let nextScheduledGameWeekIndex = -1
+            let nextScheduledGameWeekIndex = 18
             outerLoop:
-            for (let weekIndex in schedule["weeks"] ){
+            for (let weekIndex in schedule["weeks"] ){ //iterate through games and find week with scheduled games for the team
                 let weekSchedule = schedule["weeks"][weekIndex]
+                print("weekschedule:" + weekSchedule)
                 for (let gameInfo of weekSchedule['games'] ){
                     
                     if ((gameInfo["away"]["name"] == Team || gameInfo["home"]["name"] == Team) 
@@ -123,9 +124,13 @@ function SelectedTeamInfo(props){
             }
             //go back two weeks and search for the most recently finished game in case there's a bye week
             
+            print("got to line 127")
+            
+            print(nextScheduledGameWeekIndex-2)
+            oLoop:
             for (let weekIndex = nextScheduledGameWeekIndex-2; weekIndex < nextScheduledGameWeekIndex && weekIndex > 0; weekIndex +=1 ){
                 let weekSchedule = schedule["weeks"][weekIndex]
-                //console.log("Team: ", Team)
+                console.log("Team: ", Team)
                 print("weekSchedule:", weekSchedule)
                 for (let gameInfo of weekSchedule['games'] ){
                     //console.log("gameInfo['id']:", gameInfo['id'])
@@ -135,6 +140,7 @@ function SelectedTeamInfo(props){
                         print("nextScheduledGameWeekIndex: ", weekIndex)
                         print("WE FOUND A PAST GAME", gameInfo)
                         setGameID(gameInfo['id'])
+                        break oLoop
                     }
                 
                 }
@@ -307,7 +313,7 @@ function SelectedTeamInfo(props){
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
 
     return (
-        <div>
+        <div className='team'>
             <select value={Team} onChange={handleChange}>
                 <option disabled={true} value="Select a Team">
                     --Select A Team--

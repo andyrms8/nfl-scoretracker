@@ -2,7 +2,7 @@ import React, { Component } from 'react'; //different
 import './App.css';
 import ScheduledGameInfo from './ScheduledGameInfo';
 
-const PRINT_FLAG = false;
+const PRINT_FLAG = true;
 
 export function print(msg, obj = 0) {
     if (PRINT_FLAG == true){
@@ -34,7 +34,7 @@ class ScheduledGames extends React.Component{
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
 
     render(){
-        const seasonType = this.props.season === 'REG' ?  'Regular Season ' : 'Playoffs '
+        const seasonType = this.props.regSeasonEnded === true ?  'Regular Season ' : 'Playoffs '
 
         print("ScheduledGames Component view of upcomingGamesList:",this.props.upcomingGamesList)
         const scheduledGames = this.returnUpcomingGames()
@@ -43,6 +43,7 @@ class ScheduledGames extends React.Component{
         return (<div>
             {seasonType}
             Week {this.props.upcomingWeekNum}
+            <br></br>
             {scheduledGames}
         </div>)
     }

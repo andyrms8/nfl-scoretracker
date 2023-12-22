@@ -40,9 +40,18 @@ class ScheduledGameInfo extends React.Component {
         const dateObj = new Date(this.props.NextScheduledGame.gameData["scheduled"])
         const away = this.props.NextScheduledGame.gameData["away"]["name"]
         const home = this.props.NextScheduledGame.gameData["home"]["name"]
+
+        var nextGameTitle;
+        const gameInfo = this.props.NextScheduledGame.gameData
+        console.log("this.props.NextScheduledGame.gameData", this.props.NextScheduledGame.gameData)
+        if (typeof gameInfo != 'undefined'){
+            nextGameTitle =  ('title' in gameInfo ? gameInfo['title'] : '')
+        }
+
         return (
             <div className='scheduledGame'>
-                  
+                    {nextGameTitle}
+                    <br></br>
                     {away} at {home}    
                     <br></br>
                     Date: {dateObj.toLocaleString([], date_options)}

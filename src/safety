@@ -6,10 +6,10 @@ import hardcoded_schedule from './schedule.js'
 import Chart from './Chart.js'
 import ScheduledGameInfo from './ScheduledGameInfo';
 
-const API_KEY = "fpdyxywaa7tnbd5db9qq47d8"
+const API_KEY = "cnvtpxu6xxma5k8uuedzhm98"
 const YEAR = "2022"
 const SEASON = "REG"; //3 types: PRE, REG, PST
-const HARD_CODE_FLAG = true;
+const HARD_CODE_FLAG = false;
 
 const PROXY_URL = 'https://cryptic-scrubland-72951.herokuapp.com/'
 const SCHEDULE_API_ENDPOINT = 'http://api.sportradar.us/nfl/official/trial/v7/en/games/' + YEAR + '/' + SEASON + '/schedule.json?api_key=' + API_KEY

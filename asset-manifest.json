@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/nfl-scoretracker/static/css/main.dfdd1937.css",
-    "main.js": "/nfl-scoretracker/static/js/main.178b26bf.js",
+    "main.css": "/nfl-scoretracker/static/css/main.fa892a87.css",
+    "main.js": "/nfl-scoretracker/static/js/main.c413e082.js",
     "static/js/787.2ae11e70.chunk.js": "/nfl-scoretracker/static/js/787.2ae11e70.chunk.js",
-    "static/media/Bears.png": "/nfl-scoretracker/static/media/Bears.43878e03a6836d43144e.png",
+    "static/media/nfl_logo.png": "/nfl-scoretracker/static/media/nfl_logo.54be450f3ea3656840a8.png",
     "index.html": "/nfl-scoretracker/index.html",
-    "main.dfdd1937.css.map": "/nfl-scoretracker/static/css/main.dfdd1937.css.map",
-    "main.178b26bf.js.map": "/nfl-scoretracker/static/js/main.178b26bf.js.map",
+    "main.fa892a87.css.map": "/nfl-scoretracker/static/css/main.fa892a87.css.map",
+    "main.c413e082.js.map": "/nfl-scoretracker/static/js/main.c413e082.js.map",
     "787.2ae11e70.chunk.js.map": "/nfl-scoretracker/static/js/787.2ae11e70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dfdd1937.css",
-    "static/js/main.178b26bf.js"
+    "static/css/main.fa892a87.css",
+    "static/js/main.c413e082.js"
   ]
 }

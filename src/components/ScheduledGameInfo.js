@@ -1,10 +1,9 @@
 import React, { Component } from 'react'; //different
 
-import './App.css';
+import '../App.css';
 import "chart.js/auto";
 import {Line} from 'react-chartjs-2';
-import schedule from './schedule.js'
-import game from './game.js';
+import game from '../game.js';
 
 
 const date_options = {   
@@ -37,22 +36,23 @@ class ScheduledGameInfo extends React.Component {
 
     render(){
         const state = this.state
-        const dateObj = new Date(this.props.NextScheduledGame.gameData["scheduled"])
-        const away = this.props.NextScheduledGame.gameData["away"]["name"]
-        const home = this.props.NextScheduledGame.gameData["home"]["name"]
+        const gameInfo = this.props.NextScheduledGame
+
+        const dateObj = new Date(gameInfo["date"])
+        // const away = this.props.NextScheduledGame.gameData["away"]["name"]
+        // const home = this.props.NextScheduledGame.gameData["home"]["name"]
+        const game_title = gameInfo["name"]
 
         var nextGameTitle;
-        const gameInfo = this.props.NextScheduledGame.gameData
-        console.log("this.props.NextScheduledGame.gameData", this.props.NextScheduledGame.gameData)
-        if (typeof gameInfo != 'undefined'){
-            nextGameTitle =  ('title' in gameInfo ? gameInfo['title'] : '')
+        console.log("this.props.NextScheduledGame", this.props.NextScheduledGame)
+        if (typeof gameInfo != 'undefined'){ //for playoff games on former SportRadar API
+            nextGameTitle =  ('title' in gameInfo ? gameInfo['title'] : false)
         }
 
         return (
             <div className='scheduledGame'>
-                    {nextGameTitle}
-                    <br></br>
-                    {away} at {home}    
+                    {nextGameTitle && <br></br>}
+                    {game_title}    
                     <br></br>
                     Date: {dateObj.toLocaleString([], date_options)}
                     <br></br>

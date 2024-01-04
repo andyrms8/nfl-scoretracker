@@ -2,7 +2,7 @@
 import React, { Component } from 'react'; //different
 import logo from './assets/images/nfl_logo.png';
 import './App.css';
-import Page from './Page';
+import Page from './components/Page';
 
 class App extends React.Component {
   
@@ -15,10 +15,9 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div className='logo'>
-            <img className='logo' src={logo} alt="bears logo" /> 
+            <img className='logo' src={logo} alt="NFL logo" /> 
           </div>
          <Page/>
-         
         </header>
       </div>
     );

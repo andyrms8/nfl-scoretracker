@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import "chart.js/auto";
-import hardcoded_schedule from './schedule.js'
 
 import Chart from './Chart.js'
 import ScheduledGameInfo from './ScheduledGameInfo';
@@ -132,11 +131,10 @@ function SelectedTeamInfo(props){
 
 
 
-    if (Object.keys(NextScheduledGame).length == 0 && GameID == 0){
+    if (Object.keys(NextScheduledGame).length == 0 && GameID == ""){
         return (
             <div> 
                 Loading...
-           
             </div>
         )
     }

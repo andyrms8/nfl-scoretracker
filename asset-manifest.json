@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/nfl-scoretracker/static/css/main.f9e72ad5.css",
+    "main.css": "/nfl-scoretracker/static/css/main.bb73b55b.css",
     "main.js": "/nfl-scoretracker/static/js/main.347a96b0.js",
     "static/js/787.2ae11e70.chunk.js": "/nfl-scoretracker/static/js/787.2ae11e70.chunk.js",
     "static/media/nfl_logo.png": "/nfl-scoretracker/static/media/nfl_logo.54be450f3ea3656840a8.png",
     "static/media/IndustryTest-MediumItalic.otf": "/nfl-scoretracker/static/media/IndustryTest-MediumItalic.d661b4a3adb18ab94ef6.otf",
     "index.html": "/nfl-scoretracker/index.html",
-    "main.f9e72ad5.css.map": "/nfl-scoretracker/static/css/main.f9e72ad5.css.map",
+    "main.bb73b55b.css.map": "/nfl-scoretracker/static/css/main.bb73b55b.css.map",
     "main.347a96b0.js.map": "/nfl-scoretracker/static/js/main.347a96b0.js.map",
     "787.2ae11e70.chunk.js.map": "/nfl-scoretracker/static/js/787.2ae11e70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9e72ad5.css",
+    "static/css/main.bb73b55b.css",
     "static/js/main.347a96b0.js"
   ]
 }

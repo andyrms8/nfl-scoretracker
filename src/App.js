@@ -17,7 +17,7 @@ class App extends React.Component {
           <div className='logo'>
             <img className='logo' src={logo} alt="NFL logo" /> 
           </div>
-         <Page/>
+          <Page/>
         </header>
       </div>
     );

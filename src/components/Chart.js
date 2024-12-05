@@ -12,17 +12,17 @@ const HARD_CODE_FLAG = false;
 
 const PRINT_FLAG = true;
 
-export function print(msg, obj = 0) {
-    if (PRINT_FLAG == true){
-        if (obj === 0) console.log(msg)
-        else console.log(msg, obj) 
-    }
-};
 
 function Chart (props){
+    function print(msg, obj = 0) {
+        if (PRINT_FLAG == true && homeName == "Jets"){
+            if (obj === 0) console.log(msg)
+            else console.log(msg, obj) 
+        }
+    };
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
-
+    
     const [numScoringPlays, setNumScoringPlays] = useState(0)
     const [labels, setLabels] = useState([1]) //TODO: do we really need this, why did we initially use it for <Line> component?
     const [scores, setScores] = useState({"away":[{x:1, y:0}], "home":[{x:1, y:0}]})
@@ -99,7 +99,7 @@ function Chart (props){
         let status = gameSummary.header.competitions[0].status
         let overtime = false
 
-        if (status.altDetail == "OT" ) { //set overtime state so chart has additional quarters
+        if (status.type.altDetail == "OT" ) { //set overtime state so chart has additional quarters
             overtime = true
         }
 
@@ -146,13 +146,24 @@ function Chart (props){
             //add last point in plot
             const current_clock = status.displayClock ? status.displayClock : "00:00" //if no displayClock attr, 
             
-            if (status.altDetail == "OT"){ //overtime
-                print("clock :", gameSummary["clock"])
-                //TODO: figure out how to get overtime quarter number for postseason (reg-season can only have 1 OT)
-                let xTime = clockToDecimalRep(5, current_clock, false)
-                print("PUTTING ON LAST DOTS FOR OVERTIME. TIME IS: ", xTime )
-                newHomeScores.push({x: xTime, y: gameSummary['summary']['home']['points']})
-                newAwayScores.push({x: xTime, y: gameSummary['summary']['away']['points']})
+            if (status.type.altDetail == "OT"){ //overtime
+                let xTime;
+                if (status.type.name == "STATUS_FINAL"){
+                    let n = newHomeScores.length
+                    newHomeScores[n -1]['z'] = "End of Overtime"
+                    newAwayScores[n -1]['z'] = "End of Overtime"
+                }
+                else if (status.type.name != "STATUS_FINAL"){
+                    xTime = clockToDecimalRep(5, current_clock, false) //game is not over
+
+                    print("clock :", gameSummary["clock"])
+                    //TODO: figure out how to get overtime quarter number for postseason (reg-season can only have 1 OT)
+                    // let xTime = clockToDecimalRep(5, current_clock, false)
+                    print("PUTTING ON LAST DOTS FOR OVERTIME. TIME IS: ", xTime )
+                    newHomeScores.push({x: xTime, y: newHomeScores.slice(-1)[0].y})
+                    newAwayScores.push({x: xTime, y: newAwayScores.slice(-1)[0].y})
+                }
+                
             }
             else //no overtime
             {
@@ -181,7 +192,7 @@ function Chart (props){
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
     //EFFECT: takes in a quarter number, string denoting time left in quarter, and converts them to a float representating how much
     //of the 15 minute quarter is past 
-    function clockToDecimalRep(quarter, timeString, reg_quarter){
+    function clockToDecimalRep(quarter, timeString, reg_quarter){ //TODO: edge case where we get something like 1:60 as time
         print("quarter: ", quarter)
         print("timeString: ", timeString)
         print("reg_quarter: ", reg_quarter)
@@ -223,14 +234,19 @@ function Chart (props){
 
     const awayScores = scores.away
     const homeScores = scores.home
-    let overtime = gameSummary.header?.competitions[0]?.status?.altDetail == "OT" ? true : false
+    let overtime = gameSummary.header?.competitions[0]?.status?.type?.altDetail == "OT" ? true : false
+    print(gameSummary.header?.competitions[0]?.status?.type.name?.altDetail)
     let away_point_radii = [5, ...awayScores.slice(1, awayScores.length - 1).map((value, index) => (value.y === awayScores[index].y) ? 0 : 5), 5];
+    away_point_radii = away_point_radii.map(element => element != 0 ? element + 1 : 0);
+
     let home_point_radii = [5, ...homeScores.slice(1, homeScores.length - 1).map((value, index) => (value.y === homeScores[index].y) ? 0 : 5), 5];
     print("away_point_radii: ", away_point_radii)
     print("home_point_radii: ", home_point_radii)
     print('array lengths: ', Object.keys(awayScores).length.toString() + " " +  Object.keys(homeScores).length.toString())
     print("awayScores:", JSON.stringify(awayScores))
     print("homeScores:",  JSON.stringify(homeScores))
+
+    const gameTitle = gameSummary.header?.gameNote ?? '';
 
     const hoverValue = {
         id: "hoverValue",
@@ -281,25 +297,29 @@ function Chart (props){
         <div className='startedGame'>
             {nextGameTitle}
             <Line data= {{   
-                            labels: labels,  
-                            datasets: [ {id: 'away', label: awayName, data: awayScores, backgroundColor: awayColor, borderColor: awayColor, pointRadius: away_point_radii},
-                                        {id: 'home', label: homeName, data: homeScores, borderWidth: 5, backgroundColor: homeColor, borderColor: homeColor, pointRadius: home_point_radii} 
+                            // labels: labels,  
+                            datasets: [ {id: 'away', label: awayName, data: awayScores, backgroundColor: awayColor, borderColor: awayColor, pointRadius: away_point_radii, /*pointHitRadius: 10,*/ pointHoverRadius: away_point_radii},
+                                        {id: 'home', label: homeName, data: homeScores, borderWidth: 5, backgroundColor: homeColor, borderColor: homeColor, pointRadius: home_point_radii, /*pointHitRadius: 10,*/ pointHoverRadius: home_point_radii} 
                                         ]
-                        }}  
-                    options={{
+                        }}
+                    // style={{ width: "30vmax", height: "40vh"}}
+                    options={{ //TODO: consider onHover callback function to disable hover for certain points (thoes at the bottom of a step)
+                            responsive: true,
+                            maintainAspectRatio: false,
                             clip: false,
-                            hoverRadius: 5,
+                            // hoverRadius: 5,
                             scales: {
                                 x: {
                                     type: 'linear',
                                     min: 1,
-                                    max: overtime? 6: 5, //awayScores.length > 0? Math.max(awayScores.splice(-1)[0].x, homeScores.splice(-1)[0].x): 5,
+                                    max: overtime? 6: 5, //TODO: logic to repalce 6 with whatever xTime is at end of game in overtime, assuming game is over. otherwise. keep 6
                                     ticks: {
+                                        color: 'white',
                                         callback: (value) => {
                                             if ( [1,2,3,4].includes(value) ){
                                                 return `Q${value}`
                                             } else if (value == 5){
-                                                return overtime? "OVERTIME": "FINAL"
+                                                return overtime? "OVERTIME": "FINAL" 
                                             }
                                             else if (value == 6){
                                                 return "FINAL"
@@ -311,43 +331,67 @@ function Chart (props){
                                     },
                                     title: {
                                         display: true,
-                                        text: 'Quarter'
+                                        text: 'Quarter',
+                                        color: 'white'
                                     }
                                 }, 
                                 y:{
                                     min:0,
                                     max: Math.max(...awayScores.concat(homeScores).map(o=> o.y)) + 1,
+                                    ticks: {
+                                        color: 'white'
+                                    },
                                     title: {
+                                        color: 'white',
+                                        display: true,
                                         display: true,
                                         text: 'Points'
                                     }
                                 },
                             },
                             plugins: {
+                                title: {
+                                    display: true,
+                                    text: gameTitle,
+                                    color: 'white'
+                                },
+                                legend: {
+                                    display: true,
+                                    title:{
+                                        color: 'white'
+                                    },
+                                    labels: {
+                                     color: 'white'
+                                    }
+                                },
                                 tooltip: {
                                     mode: 'index',
                                     intersect: true,
                                     callbacks: {
-                                        datasetIndex: function() {},
-                                        dataIndex: function() {},
+                                        // datasetIndex: function() {},
+                                        // dataIndex: function() {},
                                         title: function(tooltipItems){ //callback automatically takes in a toolTipItem array []
                                             
 
-                                            //print("tooltipItems: ", tooltipItems)
-                                            let float = tooltipItems[0].parsed.x
-                                            
-                                            if (float == 5 || float == 6){
+                                            print("tooltipItems: ", tooltipItems)
+                                            let xVal = tooltipItems[0].parsed.x
+                                            let overtime_marker = tooltipItems[0].raw.z
+                                            print("overtime_marker: ", overtime_marker)
+                                            if (xVal == 5){
                                                 return "End of Regulation"
+                                            } else if (overtime_marker) {
+                                                return "End of Overtime"
                                             }
-
-                                            let quarter = Math.floor(float);
-                                            let decimals = float - quarter;
+                                            
+                                            let xFloor = Math.floor(xVal)
+                                            let quarter = (xFloor != xVal || xVal == 1)? xFloor : xFloor - 1;
+                                            let decimals = xVal - quarter;
                                             let timeLeftDecimal = 15 * ( 1- decimals)
                                             let minutes = Math.floor(timeLeftDecimal)
                                             let seconds = ((timeLeftDecimal - minutes) * 60).toFixed(0)
-                                            
+
                                             return "".concat("Q",quarter.toString(), " ", minutes.toString() + ":" +  (seconds > 10 ? seconds.toString() : '0' + seconds.toString()) )
-                                        
+                                                    
                                         },
                                         label: function(context) {//callback automatically takes in a toolTipItem
                                             // print("context:" , context)

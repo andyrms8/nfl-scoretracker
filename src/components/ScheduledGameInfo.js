@@ -4,6 +4,7 @@ import '../App.css';
 import "chart.js/auto";
 import {Line} from 'react-chartjs-2';
 import game from '../game.js';
+import { defined } from 'chart.js/helpers';
 
 
 const date_options = {   
@@ -48,15 +49,30 @@ class ScheduledGameInfo extends React.Component {
         if (typeof gameInfo != 'undefined'){ //for playoff games on former SportRadar API
             nextGameTitle =  ('title' in gameInfo ? gameInfo['title'] : false)
         }
+        
+        const awayTeam = gameInfo.competitions[0].competitors[1].team
+        const homeTeam = gameInfo.competitions[0].competitors[0].team
 
         return (
             <div className='scheduledGame'>
                     {nextGameTitle && <br></br>}
-                    {game_title}    
-                    <br></br>
-                    Date: {dateObj.toLocaleString([], date_options)}
-                    <br></br>
-                    Time: {dateObj.toLocaleString([], time_options)}
+                    {/* {game_title}     */}
+                     {dateObj.toLocaleString([], date_options)} @ {dateObj.toLocaleString([], time_options)}
+                    <div className='homeAtAway'>
+                        <div className='logoAndName'>
+                           <img className='teamlogo' src={awayTeam.logo ? awayTeam.logo: awayTeam.logos[1].href} alt="Away Team Logo" /> 
+                            {awayTeam.abbreviation}
+                        </div>
+                        
+                            VS
+                        
+                        <div className='logoAndName'> 
+                            <img className='teamlogo' src={homeTeam.logo ? homeTeam.logo: homeTeam.logos[1].href} alt="Home Team Logo"/> 
+                            {homeTeam.abbreviation}
+                        </div>
+                    </div>
+                   
+                    
             </div>
 
         )

@@ -2,6 +2,7 @@
     "PROXY_URL": "https://cryptic-scrubland-72951.herokuapp.com/",
     "EVENTS_API_ENDPOINT": "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events",
     "WEEK_SCHEDULE_API_ENDPOINT": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates={{year}}&seasontype={{season_type}}&week={{week}}",
+    "TEAMS_SCHEDULE_API_ENDPOINT": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/{{team_id}}/schedule?seasontype={{season_type}}",
     "REQUEST_OPTIONS": {
         "method": "GET",
         "headers": {
@@ -11,6 +12,7 @@
         }
     },
     "NUMBER_TEAMS": 32,
+    "REGULAR_SEASON_WEEKS": 18,
     "TEAM_NAME_TO_ID": {
         "Arizona Cardinals" : "22",
         "Atlanta Falcons" : "1",

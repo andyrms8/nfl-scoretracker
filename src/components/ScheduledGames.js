@@ -1,6 +1,7 @@
 import React from 'react'; //different
 import '../App.css';
 import ScheduledGameInfo from './ScheduledGameInfo';
+import config from '../config.json'
 
 const PRINT_FLAG = true;
 
@@ -10,6 +11,10 @@ export function print(msg, obj = 0) {
         else console.log(msg, obj) 
     }
 };
+
+function calcWeekFromSeasonStatus(season_type, week){
+    return (season_type - 2) * config.REGULAR_SEASON_WEEKS + Number(week)
+}
 
 function ScheduledGames(props){
     
@@ -30,13 +35,13 @@ function ScheduledGames(props){
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
     
     print("ScheduledGames Component view of upcomingGames:", props.upcomingGames)
-    const seasonType = props.isRegSzn == true ?  'Regular Season ' : 'Playoffs '
+    const seasonType = props.isRegSzn == true ?  '' : 'Playoffs '
     const scheduledGames = returnUpcomingGames()
 
-    return (<div>
+    return (<div className='center'>
         {seasonType}
         Week {props.recentWeekNum}
-        <br></br>
+        {/* <br></br> */}
         {scheduledGames}
     </div>)
     

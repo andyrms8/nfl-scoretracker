@@ -1,15 +1,16 @@
 import React, { useState } from 'react'; //different
 import '../App.css';
 import Chart from './Chart.js'
+import config from '../config.json'
 
+const WILD_CARD_WEEK = 19;
+const DIVISIONAL_ROUND = 20;
+const CONFERENCE_CHAMPIONSHIP = 21;
+const SUPERBOWL = 22;
 
 function RecentGames(props) {
-
-    const [selectedWeek, setSelectedWeek] = useState(props.recentWeekNum)
-
-    function handleWeekSelection (event) {
-        setSelectedWeek(event.target.value)
-    }
+    
+    const [maxWeek, setMaxWeek] = useState(calcWeekFromSeasonStatus(props.startedWeekStatus.season_type, props.startedWeekStatus.week))
 
     const returnRecentGameMappings = () => {
         let recentGames = props.recentGames
@@ -24,19 +25,55 @@ function RecentGames(props) {
        return allRecentGames;
     }
 
+    function calcWeekFromNum (num) {
+        return num <= config.REGULAR_SEASON_WEEKS ? num : num - config.REGULAR_SEASON_WEEKS
+    }
+    
+    function handleWeekSelection (event) {
+        const selectedSeason = calcSeasonTypeFromNum(event.target.value)
+        const selectedWeek = calcWeekFromNum(event.target.value)
+        props.setStartedWeekStatus({"year": status.year, "season_type": selectedSeason, "week": selectedWeek})
+    }
+
+    const status = props.startedWeekStatus
     const charts = returnRecentGameMappings()
-    const seasonType = props.isRegSzn ?  'Regular Season ' : 'Playoffs '
-    const weeks = Array.from({ length: props.recentWeekNum}, (_, index) => index + 1);
+    const seasonType = props.isRegSzn ?  '' : 'Playoffs '
+    const weeks = Array.from({ length: maxWeek}, (_, index) => index + 1);
     const weekOptions = (weeks).map((weekNum) => {
-        return <option key={weekNum} value={weekNum}>{"Week" + weekNum}</option>
+        return <option key={weekNum} value={weekNum}>{Text(weekNum)}</option>
     })
 
+    // Value of 
+    function calcWeekFromSeasonStatus(season_type, week){
+        return (season_type - 2) * config.REGULAR_SEASON_WEEKS + Number(week)
+    }
 
-    return (<div>
+    function calcSeasonTypeFromNum(num){
+        return num/config.REGULAR_SEASON_WEEKS > 1? 3: 2
+    }
+
+    function Text(week){
+        switch (week){
+            case WILD_CARD_WEEK:
+                return "Wild Card Round"
+            case DIVISIONAL_ROUND:
+                return "Divisional Round"
+            case CONFERENCE_CHAMPIONSHIP:
+                return "Conference Championship"
+            case SUPERBOWL:
+                return "Super Bowl"
+            default:
+                return "Week " + week
+        }
+    }
+
+    const num = calcWeekFromSeasonStatus(status.season_type, status.week)
+
+    return (<div className='center'>
         {seasonType}
-            <select className="selectTeam" value={selectedWeek} onChange={handleWeekSelection}>
-                <option className='selectTeam' disabled={true} value= {selectedWeek}>
-                    Week {selectedWeek}
+            <select className="selectTeam" value={num} onChange={handleWeekSelection}>
+                <option className='selectTeam' disabled={true} value= {Text(num)}>
+                    {Text(num)}
                 </option>
                 {weekOptions}
             </select>

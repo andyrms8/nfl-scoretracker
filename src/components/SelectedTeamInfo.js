@@ -44,9 +44,15 @@ function SelectedTeamInfo(props){
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
 
 async function GetTeamSchedule(team_name, season_type) {
+
+    print("----------SelectedTeamInfo Component GetTeamSchedule() started execution...----------")
     let last_started_game_index = -1
     const id = config.TEAM_NAME_TO_ID[team_name]
-    const {events: games } = await fetch_api_response('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/' + id + '/schedule?' + 'seasontype=' + season_type)
+
+    let team_schedule_endpoint = config.TEAMS_SCHEDULE_API_ENDPOINT.replace('{{team_id}}', id)
+                                        .replace('{{season_type}}', season_type)
+    const {events: games } = await fetch_api_response(team_schedule_endpoint)
+    // const {events: games } = await fetch_api_response('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/' + id + '/schedule?' + 'seasontype=' + season_type)
                             
     print("games for team: ", games)
     //process: iterate through schedule, with last_started_game_index starting at -1 find the last game thats FINAL. 
@@ -59,21 +65,29 @@ async function GetTeamSchedule(team_name, season_type) {
             //            (2) all games of season are completed (no schedule to show)
 
        
-        if (status == 'STATUS_FINAL'){
+        if (status == 'STATUS_FINAL' || status == 'STATUS_IN_PROGRESS'){
             last_started_game_index = index
         }
     })
+    console.log("last_started_game_index", last_started_game_index)
 
-    //if last_started_game_index == -1, then all games are scheduled, so just return a scheduled game
-    if (last_started_game_index == -1) {
+    //if last_started_game_index == -1 --> either reg season hasn't started, or team didnt make playoffs, so just return a scheduled game
+    if (season_type == 2 && last_started_game_index == -1) {
         setNextScheduledGame(games[0])
         setNextGameTime(games[0].date)
     }
-    //if last_started_game_index == games.length - 1, then all games occured, so return chart of last_started_game_index
-        //run the same function on the post season endpoint for the team
-    else if (last_started_game_index == -1) {
-        setRecentGameID(games[last_started_game_index])
-        GetTeamSchedule(team_name, 3)
+    else if (last_started_game_index == games.length -1) { //all games of season are completed
+        if (games.length > 0 ) { //set recent game id to last game of season
+            setRecentGameID(games[last_started_game_index])
+        }
+        if (season_type == 2 ){ //fetch post season schedule if we've only looked at regular season
+            GetTeamSchedule(team_name, 3)
+        }
+        else if (season_type == 3 && games.length > 0){//season_type == 3
+            SetInPlayoffs(true)
+            SetInContention(false)
+        }
+        
     }
     else{
         setRecentGameID(games[last_started_game_index])
@@ -81,8 +95,7 @@ async function GetTeamSchedule(team_name, season_type) {
         setNextGameTime(games[last_started_game_index + 1].date)
     }
     //else, return chart of games[last_started_game_index], and scheduled game of games[last_started_game_index + 1]
-
-    console.log("asdf")
+    print("----------SelectedTeamInfo Component GetTeamSchedule() ended execution.----------")
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
@@ -122,7 +135,7 @@ async function GetTeamSchedule(team_name, season_type) {
 
 //EFFECT: resets state when a new team is selected so that our useEffect hooks run again to grab new state
     function handleChange(event){
-        setNextScheduledGame({})
+        setNextScheduledGame("")
         setRecentGameID("")
         SetInPlayoffs(false)
         SetInContention(true)
@@ -132,7 +145,7 @@ async function GetTeamSchedule(team_name, season_type) {
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
 
     function SelectedTeamComponent(){
-        print("NextScheduledGame", NextScheduledGame)
+        print("NextScheduledGame", typeof(NextScheduledGame))
         print("RecentGameID", RecentGameID)
 
         var nextGameTitle;
@@ -153,33 +166,31 @@ async function GetTeamSchedule(team_name, season_type) {
                 <div>
                 </div>
             )
-        } else if (Object.keys(NextScheduledGame).length == 0 && RecentGameID == ""){ //Should only return true upon initialization, never after selection 
-            //TODO: this clause is same as the one below, need to rework the logic for this case and/or one below
+        } else if (NextScheduledGame == "" && RecentGameID != ""){ //Reg season ended --> recent game exists, upcoming game DNE
             return (
-                <div> 
+                <div className='center'> 
+                    Last Game:
+                    <Chart gameStatusInfo={RecentGameID} />
+                    {eliminationMessage}
+                </div>
+            ) 
+        } else if (NextScheduledGame == "" && RecentGameID == ""){ //No next scheduled game, no recent game --> API hasn't returned yet
+            return (
+                <div className='center'> 
                     Loading...
-                   {eliminationMessage}
                 </div>
             )
         } else if (Object.keys(NextScheduledGame).length != 0 && RecentGameID == ""){ //Week 1 is upcoming --> recent game DNE, upcoming game exists
             return (
-                <div>
+                <div className='center'>
                     {nextGameTitle}
                     <ScheduledGameInfo NextScheduledGame={NextScheduledGame} />
-                </div>
-            )
-        } else if (Object.keys(NextScheduledGame).length == 0 && RecentGameID != ""){ //Reg season ended --> recent game exists, upcoming game DNE
-            return (
-                <div> 
-                    Last Game:
-                    <Chart gameStatusInfo={RecentGameID} />
-                    {eliminationMessage}
                 </div>
             )
         } 
         else if (Object.keys(NextScheduledGame).length != 0 && RecentGameID != "") { //mid season --> recent game exists, upcoming game exists
             return (
-                <div> 
+                <div className='center'> 
                     Last Game:
                     <Chart gameStatusInfo={RecentGameID} />
                     Next Game:{nextGameTitle}
@@ -189,7 +200,7 @@ async function GetTeamSchedule(team_name, season_type) {
         } else{
             return(
                 <div>
-                    This condition should never run
+                    Loading...
                 </div>
             )
         }
@@ -203,7 +214,7 @@ async function GetTeamSchedule(team_name, season_type) {
 // ---------------------------------------------------------------------------------------------------------------------------------------------------- //
 
     return (
-        <div className='team'>
+        <div>
             <select className="selectTeam" value={Team} onChange={handleChange}>
                 <option className='selectTeam' disabled={true} value="Select a Team">
                     --Select A Team--
@@ -216,6 +227,5 @@ async function GetTeamSchedule(team_name, season_type) {
     )
     
 }
-
 
 export default SelectedTeamInfo;
